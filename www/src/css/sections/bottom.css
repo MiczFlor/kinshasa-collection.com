@@ -1,0 +1,8 @@
+.section-bottom {
+    background: $grad-citrus;
+    color: $white;
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+}

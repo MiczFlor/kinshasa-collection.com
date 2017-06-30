@@ -1,0 +1,13 @@
+/*
+header
+*/
+
+.section-header {
+    background: $black;
+    color: $white;
+    a {
+        @extend .text-l;
+        color: $white;
+        text-decoration: none;
+    }
+}
