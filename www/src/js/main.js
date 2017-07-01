@@ -3,6 +3,7 @@
     'use strict';
 
     var VERSION = '0.1';
+    var iframeTrailerSrc = document.querySelector('#trailer-dialog iframe').getAttribute('src');
 
     // Function to animate the scroll
     var smoothScroll = function(anchor, duration) {
@@ -73,6 +74,22 @@
 
     });
 
-    console.log('JavaScript file with version v' + VERSION + ' loaded with no errors!');
+    var trailerDialogEl = document.getElementById('trailer-dialog');
+    var mainEl = document.querySelector('header');
+
+    // Instantiate a new A11yDialog module
+    var trailerDialog = new A11yDialog(trailerDialogEl, mainEl);
+
+    trailerDialog.on('show', function(dialogEl, triggerEl) {
+        dialogEl.querySelector('iframe').setAttribute('src', iframeTrailerSrc);
+    });
+
+    trailerDialog.on('hide', function(dialogEl, triggerEl) {
+        var iframeSrc = dialogEl.querySelector('iframe').getAttribute('src');
+        iframeTrailerSrc = iframeSrc;
+        dialogEl.querySelector('iframe').setAttribute('src', '');
+    });
+
+    console.log('JavaScript file with version v' + VERSION + ' loaded with no errors!1')
 
 })();
