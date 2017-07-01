@@ -28,7 +28,7 @@
         right: 0;
         bottom: 0;
         top: 0;
-        background: $black url(../../build/media/header-img.jpg) no-repeat 0 0;
+        background: $black url(./build/media/header-img.jpg) no-repeat 0 0;
         background-size: cover;
         z-index: -2;
     }
@@ -39,7 +39,7 @@
 }
 
 .logo-main {
-    background: url(../../build/media/KC-Logo-gold.png) no-repeat 0 0;
+    background: url(./build/media/KC-Logo-gold.png) no-repeat 0 0;
     margin: 0 auto;
     text-indent: -2017em;
     width: 280px;
