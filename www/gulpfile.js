@@ -71,7 +71,7 @@ gulp.task('images', function() {
 gulp.task('watch', function() {
 
     // Watch .scss files
-    gulp.watch('src/**/*.css', ['styles', browserSync.reload]);
+    gulp.watch('src/**/*.css', ['styles', 'inlinesource', browserSync.reload]);
 
     // Watch .js files
     gulp.watch('src/**/*.js', ['compress', browserSync.reload]);
