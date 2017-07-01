@@ -14,7 +14,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
-var babel = require('gulp-babel');
+var inlinesource = require('gulp-inline-source');
 
 gulp.task('styles', function() {
     return gulp.src('src/css/styles.css')
@@ -34,32 +34,6 @@ gulp.task('styles', function() {
         .pipe(gulp.dest('build/css'));
 });
 
-gulp.task('effects', function() {
-    return gulp.src('src/css/effects.css')
-        .pipe(sourcemaps.init())
-        .pipe(plumber())
-        .pipe(postcss([
-            require('postcss-simple-vars'),
-            require('autoprefixer'),
-            require('precss'),
-            require('postcss-partial-import'),
-            require('postcss-extend'),
-            require('postcss-nested'),
-            require('cssnano')
-        ]))
-        .pipe(rename({ extname: '.css' }))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('build/css'));
-});
-
-gulp.task('babel', function() {
-    return gulp.src('src/main.js')
-        .pipe(babel({
-            presets: ['es2015']
-        }))
-        .pipe(gulp.dest('src'));
-});
-
 gulp.task('compress', function(cb) {
     pump([
             gulp.src('src/js/*.js'),
@@ -68,6 +42,12 @@ gulp.task('compress', function(cb) {
         ],
         cb
     );
+});
+
+gulp.task('inlinesource', function() {
+    return gulp.src('src/*.html')
+        .pipe(inlinesource())
+        .pipe(gulp.dest(''));
 });
 
 // Static server
@@ -101,4 +81,4 @@ gulp.task('watch', function() {
 
 });
 
-gulp.task('default', ['styles', 'effects', 'compress', 'browser-sync', 'watch']);
+gulp.task('default', ['styles', 'inlinesource', 'compress', 'browser-sync', 'watch']);
