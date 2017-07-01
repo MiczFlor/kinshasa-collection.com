@@ -5,4 +5,40 @@
         color: $white;
         text-decoration: none;
     }
+    .header-xl {
+        background-color: $red;
+        text-align: center;
+        color: $blue;
+        padding: 30px 0;
+        text-transform: uppercase;
+    }
+}
+
+.episodes-list {
+    padding: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+        display: block;
+        width: 100%;
+        background: $lightblack;
+        margin: 10px;
+        padding: 10px;
+    }
+    .btn {
+        display: inline-block;
+        float: right;
+    }
+}
+
+@media all and (min-width: 40em) {
+    .episodes-list li {
+        width: calc(50% - 20px);
+    }
+}
+
+@media all and (min-width: 60em) {
+    .episodes-list li {
+        width: calc(33.333% - 20px);
+    }
 }

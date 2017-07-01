@@ -30,3 +30,16 @@ ul {
         padding: 0;
     }
 }
+
+@media all and (max-width: 40em) {
+    h1,
+    h2,
+    h3 {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
+    }
+}

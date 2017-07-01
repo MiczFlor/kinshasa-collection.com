@@ -5,9 +5,42 @@ header
 .section-header {
     background: $black;
     color: $white;
+    padding-bottom: 140px;
     a {
         @extend .text-l;
         color: $white;
         text-decoration: none;
+    }
+}
+
+.header-main {
+    text-align: center;
+}
+
+.logo-main {
+    background: url(/build/media/KC-Logo-gold.png) no-repeat 0 0;
+    margin: 0 auto;
+    text-indent: -2017em;
+    width: 280px;
+    height: 375px;
+}
+
+@media all and (min-width: 60em) {
+    .main-nav {
+        text-align: right;
+        display: block;
+        padding-bottom: 140px;
+        li {
+            display: inline-block;
+            padding: 20px 0 20px 20px;
+        }
+    }
+}
+
+@media all and (max-width: 30em) {
+    .section-header .btn {
+        display: block;
+        margin: 0 auto 10px auto;
+        max-width: 90%;
     }
 }

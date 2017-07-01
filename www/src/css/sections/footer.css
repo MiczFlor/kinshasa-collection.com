@@ -1,8 +1,15 @@
 .section-footer {
     background: $grad-purple;
     color: $white;
+    padding: 30px 0;
     a {
         color: $white;
         text-decoration: none;
+    }
+    p {
+        padding: 0 0 14px 0;
+    }
+    .header-l {
+        padding-bottom: 10px;
     }
 }

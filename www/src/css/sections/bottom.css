@@ -1,8 +1,16 @@
 .section-bottom {
     background: $grad-citrus;
     color: $white;
+    padding: 30px 0;
     a {
         color: $white;
         text-decoration: none;
     }
+    p {
+        padding-bottom: 14px;
+    }
+}
+
+.section-press {
+    padding-top: 40px;
 }
