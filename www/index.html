@@ -278,13 +278,20 @@
                 families: ['Average', 'Fjalla One', 'Roboto Condensed:400,700']
             }
         };
-        (function(d) {
+        var loadScript = function(name) {
+            var d = document;
             var wf = d.createElement('script'),
                 s = d.scripts[0];
-            wf.src = './build/js/webfontloader.js';
+            wf.src = name;
             wf.async = true;
             s.parentNode.insertBefore(wf, s);
-        })(document);
+        };
+        loadScript('./build/js/webfontloader.js');
+
+        // cut the mustard
+        if ('visibilityState' in document) {
+            loadScript('./build/js/main.js');
+        }
     </script>
 </body>
 

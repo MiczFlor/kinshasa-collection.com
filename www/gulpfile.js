@@ -14,6 +14,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
+var babel = require('gulp-babel');
 
 gulp.task('styles', function() {
     return gulp.src('src/css/styles.css')
@@ -51,6 +52,14 @@ gulp.task('effects', function() {
         .pipe(gulp.dest('build/css'));
 });
 
+gulp.task('babel', function() {
+    return gulp.src('src/main.js')
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('src'));
+});
+
 gulp.task('compress', function(cb) {
     pump([
             gulp.src('src/js/*.js'),
@@ -83,6 +92,9 @@ gulp.task('watch', function() {
 
     // Watch .scss files
     gulp.watch('src/**/*.css', ['styles', browserSync.reload]);
+
+    // Watch .js files
+    gulp.watch('src/**/*.js', ['compress', browserSync.reload]);
 
     // Watch any files in root html, reload on change
     gulp.watch("*.html", browserSync.reload);
