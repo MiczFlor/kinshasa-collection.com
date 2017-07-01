@@ -3,6 +3,7 @@
 @import 'base/grid.css';
 @import 'base/general.css';
 @import 'components/button.css';
+@import 'components/overlay.css';
 @import 'sections/header.css';
 @import 'sections/about.css';
 @import 'sections/plotline.css';

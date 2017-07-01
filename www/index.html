@@ -43,11 +43,21 @@
             <h1 class="logo-main">Kinshasa Collection</h1>
 
             <div class="btn-group">
-                <a class="btn" href="#trailer">Watch Trailer</a>
+                <a class="btn" data-a11y-dialog-show="trailer-dialog" href="#trailer">Watch Trailer</a>
                 <a class="btn" href="placeholder-episodes.html">Watch Episodes 1-5 </a>
             </div>
         </div>
         <div class="pattern"> </div>
+
+        <div class="dialog" aria-hidden="true" id="trailer-dialog">
+            <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+            <div class="dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+                <div role="document">
+                    <iframe src="https://player.vimeo.com/video/25554995" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <button data-a11y-dialog-hide class="dialog-close" aria-label="Close this dialog window">&times;</button>
+                </div>
+            </div>
+        </div>
     </header>
     <main>
         <section id="about" class="section-about">
@@ -272,19 +282,26 @@
         </div>
     </footer>
 
+
+
+    <script src="./build/js/load.js"></script>
     <script>
         WebFontConfig = {
             google: {
                 families: ['Average', 'Fjalla One', 'Roboto Condensed:400,700']
             }
         };
-        (function(d) {
-            var wf = d.createElement('script'),
-                s = d.scripts[0];
-            wf.src = './build/js/webfontloader.js';
-            wf.async = true;
-            s.parentNode.insertBefore(wf, s);
-        })(document);
+        loadjs('./build/js/webfontloader.js');
+
+        // cut the mustard
+        if ('visibilityState' in document) {
+            loadjs(['./build/js/a11y-dialog.js', './build/js/main.js'], {
+                success: function() {
+                    console.log('Hey, you are using an modern browser, let\'s enhance your experience');
+                },
+                async: false
+            });
+        }
     </script>
 </body>
 

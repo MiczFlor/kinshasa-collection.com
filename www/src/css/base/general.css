@@ -43,3 +43,8 @@ ul {
         hyphens: auto;
     }
 }
+
+[hidden],
+.dialog[aria-hidden="true"] {
+    display: none;
+}
