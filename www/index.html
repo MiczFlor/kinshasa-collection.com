@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kinshasa Collection</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Average|Fjalla+One|Roboto+Condensed:400,700" rel="stylesheet">
     <link rel="stylesheet" href="./build/css/styles.css">
     <link rel="stylesheet" href="./build/css/effects.css">
 </head>
@@ -272,6 +271,21 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        WebFontConfig = {
+            google: {
+                families: ['Average', 'Fjalla One', 'Roboto Condensed:400,700']
+            }
+        };
+        (function(d) {
+            var wf = d.createElement('script'),
+                s = d.scripts[0];
+            wf.src = './build/js/webfontloader.js';
+            wf.async = true;
+            s.parentNode.insertBefore(wf, s);
+        })(document);
+    </script>
 </body>
 
 </html>
