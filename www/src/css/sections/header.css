@@ -1,0 +1,67 @@
+/*header*/
+
+.section-header {
+    color: $white;
+    padding-bottom: 140px;
+    position: relative;
+    a {
+        @extend .text-l;
+        color: $white;
+        text-decoration: none;
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: rgba(127, 127, 127, 0.3);
+        background-image: linear-gradient( 45deg, black 15%, transparent 15%, transparent 85%, black 85%, black), linear-gradient( 45deg, black 15%, transparent 15%, transparent 85%, black 85%, black), linear-gradient(-45deg, black 15%, transparent 15%, transparent 85%, black 85%, black), linear-gradient(-45deg, black 15%, transparent 15%, transparent 85%, black 85%, black);
+        background-size: 3px 3px;
+        z-index: -1;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: $black url(./build/media/header-img.jpg) no-repeat 0 0;
+        background-size: cover;
+        z-index: -2;
+    }
+}
+
+.header-main {
+    text-align: center;
+}
+
+.logo-main {
+    background: url(./build/media/KC-Logo-gold.png) no-repeat 0 0;
+    margin: 0 auto;
+    text-indent: -2017em;
+    width: 280px;
+    height: 375px;
+}
+
+@media all and (min-width: 60em) {
+    .main-nav {
+        text-align: right;
+        display: block;
+        padding-bottom: 140px;
+        li {
+            display: inline-block;
+            padding: 20px 0 20px 20px;
+        }
+    }
+}
+
+@media all and (max-width: 30em) {
+    .section-header .btn {
+        display: block;
+        margin: 0 auto 10px auto;
+        max-width: 90%;
+    }
+}

@@ -1,0 +1,15 @@
+.btn {
+    padding: 8px;
+    border: 1px solid $white;
+}
+
+@media all and (min-width: 60em) {
+    .btn-group {
+        display: flex;
+        margin: 0 -10px;
+        .btn {
+            width: 50%;
+            margin: 0 10px;
+        }
+    }
+}

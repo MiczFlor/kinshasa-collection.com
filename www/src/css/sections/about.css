@@ -1,0 +1,9 @@
+.section-about {
+    background-color: $lightgreen;
+    h2 {
+        padding: 40px 0 0 0;
+    }
+    .webnav {
+        padding: 30px 0 40px 0;
+    }
+}
