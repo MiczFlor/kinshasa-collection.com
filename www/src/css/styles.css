@@ -4,6 +4,7 @@
 @import 'base/general.css';
 @import 'components/button.css';
 @import 'components/overlay.css';
+@import 'components/effects.css';
 @import 'sections/header.css';
 @import 'sections/about.css';
 @import 'sections/plotline.css';
