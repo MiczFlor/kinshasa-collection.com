@@ -3,13 +3,36 @@ header
 */
 
 .section-header {
-    background: $black;
     color: $white;
     padding-bottom: 140px;
+    position: relative;
     a {
         @extend .text-l;
         color: $white;
         text-decoration: none;
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: rgba(127, 127, 127, 0.3);
+        background-image: linear-gradient( 45deg, black 15%, transparent 15%, transparent 85%, black 85%, black), linear-gradient( 45deg, black 15%, transparent 15%, transparent 85%, black 85%, black), linear-gradient(-45deg, black 15%, transparent 15%, transparent 85%, black 85%, black), linear-gradient(-45deg, black 15%, transparent 15%, transparent 85%, black 85%, black);
+        background-size: 3px 3px;
+        z-index: -1;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: $black url(/build/media/header-img.jpg) no-repeat 0 0;
+        background-size: cover;
+        z-index: -2;
     }
 }
 

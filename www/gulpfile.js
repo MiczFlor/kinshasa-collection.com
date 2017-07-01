@@ -31,6 +31,24 @@ gulp.task('styles', function() {
         .pipe(gulp.dest('build/css'));
 });
 
+gulp.task('effects', function() {
+    return gulp.src('src/css/effects.css')
+        .pipe(sourcemaps.init())
+        .pipe(plumber())
+        .pipe(postcss([
+            require('postcss-simple-vars'),
+            require('autoprefixer'),
+            require('precss'),
+            require('postcss-partial-import'),
+            require('postcss-extend'),
+            require('postcss-nested'),
+            require('cssnano')
+        ]))
+        .pipe(rename({ extname: '.css' }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('build/css'));
+});
+
 // Static server
 gulp.task('browser-sync', function() {
     browserSync({
@@ -59,4 +77,4 @@ gulp.task('watch', function() {
 
 });
 
-gulp.task('default', ['styles', 'browser-sync', 'watch']);
+gulp.task('default', ['styles', 'effects', 'browser-sync', 'watch']);
