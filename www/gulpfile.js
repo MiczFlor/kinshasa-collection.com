@@ -12,6 +12,8 @@ var reload = browserSync.reload;
 var cssnano = require('cssnano');
 var sourcemaps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
+var uglify = require('gulp-uglify');
+var pump = require('pump');
 
 gulp.task('styles', function() {
     return gulp.src('src/css/styles.css')
@@ -49,6 +51,16 @@ gulp.task('effects', function() {
         .pipe(gulp.dest('build/css'));
 });
 
+gulp.task('compress', function(cb) {
+    pump([
+            gulp.src('src/js/*.js'),
+            uglify(),
+            gulp.dest('build/js')
+        ],
+        cb
+    );
+});
+
 // Static server
 gulp.task('browser-sync', function() {
     browserSync({
@@ -77,4 +89,4 @@ gulp.task('watch', function() {
 
 });
 
-gulp.task('default', ['styles', 'effects', 'browser-sync', 'watch']);
+gulp.task('default', ['styles', 'effects', 'compress', 'browser-sync', 'watch']);
