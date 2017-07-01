@@ -1,0 +1,2 @@
+nav a:after{content:"";display:block;height:2px;width:0;background:transparent;transition:width .5s ease,background-color .5s ease;margin:auto}nav a:hover:after{width:100%;background:#fff}
+/*# sourceMappingURL=effects.css.map */

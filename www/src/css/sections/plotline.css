@@ -1,0 +1,33 @@
+.section-plotline {
+    padding: 0 0 30px 0;
+    .header-xl {
+        background-color: $red;
+        text-align: center;
+        color: $blue;
+        padding: 30px 0;
+        text-transform: uppercase;
+    }
+}
+
+.plotline-list {
+    display: flex;
+    flex-wrap: wrap;
+    div {
+        background: $blue;
+        color: $white;
+        margin: 10px;
+        padding: 10px;
+    }
+}
+
+@media all and (min-width: 40em) {
+    .plotline-list div {
+        width: calc(50% - 20px);
+    }
+}
+
+@media all and (min-width: 60em) {
+    .plotline-list div {
+        width: calc(33.333% - 20px);
+    }
+}
