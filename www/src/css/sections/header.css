@@ -21,17 +21,19 @@
         background-size: 3px 3px;
         z-index: -1;
     }
-    &:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        background: $black url(./build/media/header-img.jpg) no-repeat 0 0;
-        background-size: cover;
-        z-index: -2;
-    }
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
 }
 
 .header-main {
