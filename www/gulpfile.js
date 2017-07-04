@@ -77,7 +77,7 @@ gulp.task('watch', function() {
     gulp.watch('src/**/*.js', ['compress', browserSync.reload]);
 
     // Watch any files in root html, reload on change
-    gulp.watch("*.html", browserSync.reload);
+    gulp.watch("src/**/*.html", browserSync.reload);
 
 });
 

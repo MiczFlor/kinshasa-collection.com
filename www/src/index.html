@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kinshasa Collection</title>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#000000">
+    <meta name="theme-color" content="#c3e4d9">
+
     <link rel="stylesheet" href="../build/css/styles.css" inline>
 </head>
 
@@ -46,7 +53,9 @@
                 <a class="btn" href="placeholder-episodes.html">Watch Episodes 1-5 </a>
             </div>
         </div>
-        <div class="pattern"> </div>
+        <video autoplay loop class="video-background" muted plays-inline>
+            <source src="https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761" type="video/mp4">
+        </video>
 
         <div class="dialog" aria-hidden="true" id="trailer-dialog">
             <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
@@ -125,27 +134,27 @@
         <section id="episodes" class="section-episodes">
             <h2 class="header-xl">Watch episodes</h2>
             <ul class="col-12 episodes-list">
-                <li>
+                <li class="episode-1">
                     <h3 class="header-m">#1 All things Berlin</h3>
                     <a class="text-l btn" href="#">Watch</a>
                 </li>
-                <li>
+                <li class="episode-2">
                     <h3 class="header-m">#2 Coming soon...</h3>
                     <a class="text-l btn" href="#">Watch</a>
                 </li>
-                <li>
+                <li class="episode-3">
                     <h3 class="header-m">#3 Coming soon...</h3>
                     <a class="text-l btn" href="#">Watch</a>
                 </li>
-                <li>
+                <li class="episode-4">
                     <h3 class="header-m">#4 Coming soon...</h3>
                     <a class="text-l btn" href="#">Watch</a>
                 </li>
-                <li>
+                <li class="episode-5">
                     <h3 class="header-m">#5 Coming soon...</h3>
                     <a class="text-l btn" href="#">Watch</a>
                 </li>
-                <li>
+                <li class="episode-vimeo">
                     <h3 class="header-m">On Vimeo</h3>
                     <a class="text-l btn" href="#">Watch</a>
                 </li>
@@ -156,7 +165,7 @@
             <h2 class="header-xl">Protagonists</h2>
 
             <ul class="col-12 protagonists-list">
-                <li>
+                <li class="protagonist-1">
                     <div>
                         <h3 class="header-m">Firstname Lastname</h3>
                         <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
@@ -164,7 +173,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li class="protagonist-2">
                     <div>
                         <h3 class="header-m">Firstname Lastname</h3>
                         <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
@@ -172,7 +181,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li class="protagonist-3">
                     <div>
                         <h3 class="header-m">Firstname Lastname</h3>
                         <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
@@ -180,7 +189,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li class="protagonist-4">
                     <div>
                         <h3 class="header-m">Firstname Lastname</h3>
                         <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
@@ -188,7 +197,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li class="protagonist-5">
                     <div>
                         <h3 class="header-m">Firstname Lastname</h3>
                         <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
@@ -196,7 +205,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li class="protagonist-6">
                     <div>
                         <h3 class="header-m">Firstname Lastname</h3>
                         <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
@@ -204,7 +213,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li class="protagonist-7">
                     <div>
                         <h3 class="header-m">Firstname Lastname</h3>
                         <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
@@ -212,7 +221,63 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li class="protagonist-8">
+                    <div>
+                        <h3 class="header-m">Firstname Lastname</h3>
+                        <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
+                            Quis!
+                        </p>
+                    </div>
+                </li>
+                <li class="protagonist-9">
+                    <div>
+                        <h3 class="header-m">Firstname Lastname</h3>
+                        <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
+                            Quis!
+                        </p>
+                    </div>
+                </li>
+                <li class="protagonist-10">
+                    <div>
+                        <h3 class="header-m">Firstname Lastname</h3>
+                        <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
+                            Quis!
+                        </p>
+                    </div>
+                </li>
+                <li class="protagonist-11">
+                    <div>
+                        <h3 class="header-m">Firstname Lastname</h3>
+                        <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
+                            Quis!
+                        </p>
+                    </div>
+                </li>
+                <li class="protagonist-12">
+                    <div>
+                        <h3 class="header-m">Firstname Lastname</h3>
+                        <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
+                            Quis!
+                        </p>
+                    </div>
+                </li>
+                <li class="protagonist-13">
+                    <div>
+                        <h3 class="header-m">Firstname Lastname</h3>
+                        <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
+                            Quis!
+                        </p>
+                    </div>
+                </li>
+                <li class="protagonist-14">
+                    <div>
+                        <h3 class="header-m">Firstname Lastname</h3>
+                        <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
+                            Quis!
+                        </p>
+                    </div>
+                </li>
+                <li class="protagonist-15">
                     <div>
                         <h3 class="header-m">Firstname Lastname</h3>
                         <p class="webnav">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum est possimus, deleniti, numquam eveniet ducimus corporis perspiciatis voluptatem, dignissimos dolorem repellat? Cupiditate earum non dolor hic excepturi dolorum eveniet.
@@ -267,16 +332,16 @@
 
                 <ul>
                     <li>
-                        <a href="#">Kulturstiftung des Bundes</a>
+                        <a href="#"><img src="./build/media/ksb.png" alt="Kulturstiftung des Bundes"></a>
                     </li>
                     <li>
-                        <a href="#">medienboard</a>
+                        <a href="#"><img src="./build/media/mbbb.png" alt="Medienboard"></a>
                     </li>
                     <li>
-                        <a href="#">HKW</a>
+                        <a href="#"><img src="./build/media/hkw.png" alt="HKW"></a>
                     </li>
                     <li>
-                        <a href="#">Goethe Institut</a>
+                        <a href="#"><img src="./build/media/gi.png" alt="Goethe Institut"></a>
                     </li>
                 </ul>
             </div>

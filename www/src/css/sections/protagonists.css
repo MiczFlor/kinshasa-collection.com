@@ -15,14 +15,93 @@
     li {
         display: block;
         width: 100%;
-        background: $yellow;
         margin: 10px;
         padding: 10px;
         overflow: hidden;
         min-height: 200px;
+        z-index: 1;
+        overflow: hidden;
+        position: relative;
         div {
             transform: translateY(140px);
             transition: all 400ms ease-in-out;
+            color: $white;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background: rgba(127, 127, 127, 0.3);
+            background-image: linear-gradient( 45deg, black 15%, transparent 15%, transparent 85%, black 85%, black), linear-gradient( 45deg, black 15%, transparent 15%, transparent 85%, black 85%, black), linear-gradient(-45deg, black 15%, transparent 15%, transparent 85%, black 85%, black), linear-gradient(-45deg, black 15%, transparent 15%, transparent 85%, black 85%, black);
+            background-size: 3px 3px;
+            z-index: -1;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            z-index: -2;
+            transition: all 400ms ease-in-out;
+        }
+        &:hover:after {
+            transform: scale(1.1);
+        }
+        &:hover:before {
+            background: rgba(127, 127, 127, 0.6);
+        }
+        &.protagonist-1:after {
+            background-image: url(./build/media/protagonist-1.jpg);
+        }
+        &.protagonist-2:after {
+            background-image: url(./build/media/protagonist-2.jpg);
+        }
+        &.protagonist-3:after {
+            background-image: url(./build/media/protagonist-3.jpg);
+        }
+        &.protagonist-4:after {
+            background-image: url(./build/media/protagonist-4.jpg);
+        }
+        &.protagonist-5:after {
+            background-image: url(./build/media/protagonist-5.jpg);
+        }
+        &.protagonist-6:after {
+            background-image: url(./build/media/protagonist-6.jpg);
+        }
+        &.protagonist-7:after {
+            background-image: url(./build/media/protagonist-7.jpg);
+        }
+        &.protagonist-8:after {
+            background-image: url(./build/media/protagonist-8.jpg);
+        }
+        &.protagonist-9:after {
+            background-image: url(./build/media/protagonist-9.jpg);
+        }
+        &.protagonist-10:after {
+            background-image: url(./build/media/protagonist-10.jpg);
+        }
+        &.protagonist-11:after {
+            background-image: url(./build/media/protagonist-11.jpg);
+        }
+        &.protagonist-12:after {
+            background-image: url(./build/media/protagonist-12.jpg);
+        }
+        &.protagonist-13:after {
+            background-image: url(./build/media/protagonist-13.jpg);
+        }
+        &.protagonist-14:after {
+            background-image: url(./build/media/protagonist-14.jpg);
+        }
+        &.protagonist-15:after {
+            background-image: url(./build/media/protagonist-15.jpg);
         }
         h3 {
             padding: 0 0 20px 0;
