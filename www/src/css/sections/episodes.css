@@ -18,6 +18,15 @@
     padding: 30px 0;
     display: flex;
     flex-wrap: wrap;
+    h3:before {
+        content: "";
+        width: 37px;
+        height: 38px;
+        background: transparent url(./build/media/video-play.png) no-repeat 0 0;
+        display: block;
+        float: left;
+        margin-right: 5px;
+    }
     li {
         display: block;
         width: 100%;

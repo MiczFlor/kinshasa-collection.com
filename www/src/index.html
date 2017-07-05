@@ -86,7 +86,7 @@
             <h2 class="header-xl">The Plotline</h2>
 
             <div class="col-12 plotline-list">
-                <div>
+                <div data-plotline="1">
                     <h3 class="webnav-bold">Episode #1 - Berlin</h3>
                     <p class="webnav">An influential German agency – DIE AGENTUR – with close ties to the government and some big foundations prepares the new major campaign “Africa on Eye Level” to promote Africa as the continent of unknown (economic) opportunities. One
                         of the finalists for the campaign is a film team with a project called “Kinshasa Collection” showcasing Kinshasa as the up-and-coming fashion capital of Africa. However, if the film team wants to win this competition, they need
@@ -94,7 +94,7 @@
                     <p>Episode airs July 28, 2017</p>
                 </div>
 
-                <div>
+                <div data-plotline="2">
                     <h3 class="webnav-bold">Episode #2 - Kinshasa</h3>
                     <p class="webnav">With very limited financial resources, the film team heads out on a research trip to Kinshasa only to discover that they are by far not the only foreign film team wanting to portray the city’s fashionistas. Even inflight-magazines
                         have already created an exotic stereotype – which is what the film team wants to avoid. When the film team is forced to dump their plans, they frantically start searching for new storylines – until a meeting with Kinshasa based
@@ -103,7 +103,7 @@
                     <p>Episode airs August 4, 2017</p>
                 </div>
 
-                <div>
+                <div data-plotline="3">
                     <h3 class="webnav-bold">Episode #3 - Guangzhou</h3>
                     <p class="webnav">Heading to Guangzhou, China the team is confronted with the fact that the vivid African life of Guangzhou has become a magnet for filmmakers around the world. And yet another surprise is waiting for them: The Congolese partners don’t
                         want the film team to accompany their shopping tour – too complicated plus the presence of “Whities” will increase the prices. How will they now be able to accomplish their extensive shopping list and get back to Kinshasa without
@@ -112,7 +112,7 @@
                     <p>Episode airs August 11, 2017</p>
                 </div>
 
-                <div>
+                <div data-plotline="4">
                     <h3 class="webnav-bold">Episode #4 - Kinshasa</h3>
                     <p class="webnav">Back in Kinshasa and only 10 days left to deliver the trailer for the “Africa on Eye Level” campaign. Amidst frantic prep for shooting the film team gets a surprising phone call: Representatives of the German textile industry that
                         partially finances the “Africa on Eye Level” campaign decided to disqualify “Kinshasa Collection” for promoting brand piracy. The team panics, facing their own bankruptcy. Turning the film project into a fashion enterprise by creating
@@ -121,13 +121,21 @@
                     <p>Episode airs August 18, 2017</p>
                 </div>
 
-                <div>
+                <div data-plotline="5">
                     <h3 class="webnav-bold">Episode #5 - Berlin</h3>
                     <p class="webnav">Clothes and accessories have been shipped to Berlin from Kinshasa where models, and fashion influencers are ready to showcase the brand new label “Kinshasa Collection” for the big fashion show at one of Berlin’s coolest venues: The
                         rooftop at Haus der Kulturen der Welt.
                     </p>
                     <p>Episode airs August 25, 2017</p>
                 </div>
+
+                <ul class="plotline-episodes-list">
+                    <li><button class="header-m">Episode #1</button></li>
+                    <li><button class="header-m">Episode #2</button></li>
+                    <li><button class="header-m">Episode #3</button></li>
+                    <li><button class="header-m">Episode #4</button></li>
+                    <li><button class="header-m">Episode #5</button></li>
+                </ul>
             </div>
         </section>
 
@@ -377,6 +385,7 @@
         if ('visibilityState' in document) {
             loadjs(['./build/js/a11y-dialog.js', './build/js/main.js'], {
                 success: function() {
+                    document.documentElement.className = 'enhanced';
                     console.log('Hey, you are using an modern browser, let\'s enhance your experience');
                 },
                 async: false
