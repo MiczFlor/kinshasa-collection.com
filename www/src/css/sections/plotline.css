@@ -18,6 +18,9 @@
         margin: 10px;
         padding: 10px;
     }
+    p {
+        margin-top: 10px;
+    }
 }
 
 @media all and (min-width: 40em) {
@@ -32,41 +35,49 @@
     }
 }
 
+.plotline-episodes-list {
+    display: none;
+}
+
 
 /* enhanced version */
 
-.enhanced {
-    .plotline-list {
-        background: transparent url(./build/media/world-map.png) no-repeat center center;
-        background-size: contain;
-        position: relative;
-        min-height: 500px;
-        div {
+@media all and (min-width: 730px) {
+    .enhanced {
+        .plotline-list {
+            background: transparent url(./build/media/world-map.png) no-repeat center center;
+            background-size: contain;
+            position: relative;
+            min-height: 500px;
+            div {
+                position: absolute;
+                opacity: 0;
+                transition: all 400ms ease-in-out;
+            }
+            div[data-active] {
+                opacity: 1;
+            }
+        }
+        .plotline-episodes-list {
             position: absolute;
-            opacity: 0;
-            transition: all 400ms ease-in-out;
-        }
-        div:first-of-type {
-            opacity: 1;
-        }
-    }
-    .plotline-episodes-list {
-        position: absolute;
-        bottom: 0;
-        left: 10px;
-        display: flex;
-        right: 10px;
-        width: 100%;
-        li {
-            width: 20%;
-            padding: 0 20px;
-        }
-        button {
-            border: none;
-            background: $black;
-            color: $white;
-            padding: 8px;
-            width: 100%;
+            bottom: 0;
+            left: 10px;
+            display: flex;
+            right: 10px;
+            width: 90%;
+            width: calc(100% - 20px);
+            li {
+                width: 20%;
+                padding: 0 20px;
+            }
+            button {
+                border: none;
+                background: $black;
+                color: $white;
+                padding: 8px;
+                width: 100%;
+                cursor: pointer;
+            }
         }
     }
 }

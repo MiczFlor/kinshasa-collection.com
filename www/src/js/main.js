@@ -90,6 +90,70 @@
         dialogEl.querySelector('iframe').setAttribute('src', '');
     });
 
+    // video controls
+    var videoState = document.querySelector('[data-status]');
+    var videoVolume = document.querySelector('[data-volume]');
+    var videoElement = document.querySelector('video');
+
+    videoState.addEventListener('click', function() {
+        var currentState = this.dataset.status;
+        console.log(currentState);
+        if (currentState === 'play') {
+            this.dataset.status = 'pause';
+            this.textContent = 'Play video';
+            videoElement.pause();
+        } else {
+            this.dataset.status = 'play';
+            this.textContent = 'Stop video';
+            videoElement.play();
+        }
+    });
+
+    videoVolume.addEventListener('click', function() {
+        var volume = this.dataset.volume;
+
+        if (volume === 'on') {
+            this.dataset.volume = 'off';
+            this.textContent = 'Volume off';
+            videoElement.muted = false;
+        } else {
+            this.dataset.volume = 'on';
+            this.textContent = 'Volume on';
+            videoElement.muted = true;
+        }
+    });
+
+    // plotline
+    var activePlotline = document.querySelector('[data-active]');
+    var plotlineButtons = document.querySelectorAll('[data-plotline-show]');
+
+    [].forEach.call(plotlineButtons, function(plotlineButton) {
+        plotlineButton.addEventListener('click', function() {
+            var plotlineToShow = this.dataset.plotlineShow;
+            var newPlotline = document.querySelector('[data-plotline="' + plotlineToShow + '"]');
+            activePlotline = document.querySelector('[data-active]');
+
+            activePlotline.removeAttribute('data-active');
+            newPlotline.setAttribute('data-active', true);
+
+        });
+    });
+
+    // mobile nav
+    var viewportWidth = window.innerWidth;
+
+    if (viewportWidth < 960) {
+        var menuTrigger = document.querySelector(['[data-trigger="menu"]']);
+
+        menuTrigger.removeAttribute('hidden');
+        document.body.classList.add('size-small');
+
+        menuTrigger.addEventListener('click', function() {
+            document.body.classList.toggle('menu-open');
+        });
+    }
+
+
     console.log('JavaScript file with version v' + VERSION + ' loaded with no errors!1')
 
 })();
