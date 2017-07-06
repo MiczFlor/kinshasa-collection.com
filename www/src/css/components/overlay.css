@@ -9,7 +9,7 @@
 }
 
 .dialog-content {
-    background-color: rgb(255, 255, 255);
+    background-color: $black;
     z-index: 3;
     position: fixed;
     top: 50%;
@@ -56,4 +56,6 @@
     text-align: center;
     cursor: pointer;
     transition: 0.15s;
+    font-size: 30px;
+    color: $golden;
 }
