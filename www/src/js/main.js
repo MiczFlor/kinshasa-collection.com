@@ -130,9 +130,14 @@
     [].forEach.call(plotlineButtons, function(plotlineButton) {
         plotlineButton.addEventListener('click', function() {
             var plotlineToShow = this.dataset.plotlineShow;
+            var city = this.dataset.city;
             var newPlotline = document.querySelector('[data-plotline="' + plotlineToShow + '"]');
+            var cityPath = document.querySelector('[data-city-path="' + city + '"]');
+            var activeCityPath = document.querySelector('path[data-active]');
             activePlotline = document.querySelector('[data-active]');
 
+            activeCityPath.removeAttribute('data-active');
+            cityPath.setAttribute('data-active', true);
             activePlotline.removeAttribute('data-active');
             newPlotline.setAttribute('data-active', true);
 

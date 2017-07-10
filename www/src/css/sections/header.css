@@ -21,6 +21,16 @@
         background-size: 3px 3px;
         z-index: -1;
     }
+    select {
+        @extend .text-m;
+        background: none;
+        color: $white;
+        border: none;
+        option {
+            @extend .text-m;
+            background: $black;
+        }
+    }
 }
 
 .video-background {

@@ -45,10 +45,16 @@
 @media all and (min-width: 730px) {
     .enhanced {
         .plotline-list {
-            background: transparent url(./build/media/world-map.png) no-repeat center center;
-            background-size: contain;
             position: relative;
             min-height: 500px;
+            .map {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: 0 auto;
+            }
             div {
                 position: absolute;
                 opacity: 0;
