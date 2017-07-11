@@ -31,7 +31,8 @@
 
 @media all and (min-width: 60em) {
     .plotline-list div {
-        width: calc(33.333% - 20px);
+        width: 340px;
+        margin: 120px 5px;
     }
 }
 
@@ -42,18 +43,40 @@
 
 /* enhanced version */
 
+.map {
+    display: none;
+}
+
 @media all and (min-width: 730px) {
     .enhanced {
         .plotline-list {
             position: relative;
             min-height: 500px;
             .map {
+                display: block;
+            }
+            .map svg {
                 position: absolute;
                 top: 0;
                 left: 0;
                 right: 0;
                 bottom: 0;
                 margin: 0 auto;
+            }
+            [data-city-path],
+            [data-city-plane],
+            [data-city-point] {
+                opacity: 0;
+                transition: all 660ms ease-in-out;
+            }
+            path[data-city-path][data-active] {
+                opacity: 1;
+            }
+            path[data-city-plane][data-active] {
+                opacity: 1;
+            }
+            path[data-city-point][data-active] {
+                opacity: 1;
             }
             div {
                 position: absolute;
@@ -67,14 +90,15 @@
         .plotline-episodes-list {
             position: absolute;
             bottom: 0;
-            left: 10px;
+            left: 0;
             display: flex;
-            right: 10px;
-            width: 90%;
-            width: calc(100% - 20px);
+            right: 0;
+            max-width: 90%;
+            width: 900px;
+            margin: 0 auto;
             li {
                 width: 20%;
-                padding: 0 20px;
+                margin: 0 10px;
             }
             button {
                 border: none;
@@ -86,4 +110,8 @@
             }
         }
     }
+}
+
+#test {
+    fill: red;
 }

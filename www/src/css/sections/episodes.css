@@ -15,7 +15,7 @@
 }
 
 .episodes-list {
-    padding: 30px 0;
+    padding: 30px 16px;
     display: flex;
     flex-wrap: wrap;
     h3:before {

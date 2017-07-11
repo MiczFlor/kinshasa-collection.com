@@ -76,13 +76,18 @@
         margin: 0 auto 10px auto;
         max-width: 90%;
     }
+    .section-header select {
+        margin: 1px 0 0 -5px;
+    }
 }
 
 .enhanced {
     .video-controls {
         position: absolute;
         bottom: 30px;
-        left: 30px;
+        left: 0;
+        right: 0;
+        padding: 0 25px;
         button {
             border: none;
             background-color: transparent;
