@@ -25,7 +25,7 @@
     <header class="section-header">
 
         <nav class="col-12 main-nav">
-            <button hidden data-trigger="menu" class="header-m">Menu</button>
+            <button hidden data-trigger="menu" class="text-m">Menu</button>
             <ul>
                 <li>
                     <a href="#about">About</a>
@@ -45,6 +45,13 @@
                 <li>
                     <a href="#press">Press</a>
                 </li>
+                <li>
+                    <select>
+                        <option value="/english">English</option>
+                        <option value="/francais">français</option>
+                        <option value="/deutsch">Deutsch</option>
+                    </select>
+                </li>
             </ul>
         </nav>
 
@@ -59,7 +66,7 @@
             </div>
         </div>
         <video autoplay loop class="video-background" muted plays-inline>
-            <source src="https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761" type="video/mp4">
+            <source src="" type="video/mp4">
         </video>
 
         <div class="dialog" aria-hidden="true" id="trailer-dialog">
@@ -72,7 +79,7 @@
             </div>
         </div>
 
-        <div class="video-controls">
+        <div class="video-controls col-12">
             <button data-status="play">Stop video</button>
             <button data-volume="off">Volume on</button>
         </div>
@@ -87,7 +94,7 @@
                     new fashion brand.
                 </p>
 
-                <p class="webnav">Produced by pong film GmbH Co-produced by Goethe-Institut Kinshasa Funded by the TURN Fund of the German Federal Cultural Foundation (Kulturstiftung des Bundes) and by Medienboard Berlin.
+                <p class="webnav">Produced by PONG FILM GmbH Co-produced by GOETHE-INSTITUT KINSHASA Funded by the TURN FUND OF THE GERMAN FEDERAL CULTURAL FOUNDATION (Kulturstiftung des Bundes) and by MEDIENBOARD BERLIN.
                 </p>
             </div>
         </section>
@@ -96,6 +103,9 @@
             <h2 class="header-xl">The Plotline</h2>
 
             <div class="col-12 plotline-list">
+                <span class="map">
+                    <object  data="./build/media/map.svg" data-svg-object></object>
+                </span>
                 <div data-plotline="1" data-active>
                     <h3 class="webnav-bold">Episode #1 - Berlin</h3>
                     <p class="webnav">An influential German agency – DIE AGENTUR – with close ties to the government and some big foundations prepares the new major campaign “Africa on Eye Level” to promote Africa as the continent of unknown (economic) opportunities. One
@@ -140,11 +150,11 @@
                 </div>
 
                 <ul class="plotline-episodes-list">
-                    <li><button data-plotline-show="1" class="header-m">Episode #1</button></li>
-                    <li><button data-plotline-show="2" class="header-m">Episode #2</button></li>
-                    <li><button data-plotline-show="3" class="header-m">Episode #3</button></li>
-                    <li><button data-plotline-show="4" class="header-m">Episode #4</button></li>
-                    <li><button data-plotline-show="5" class="header-m">Episode #5</button></li>
+                    <li><button data-plotline-show="1" data-city="berlin" class="header-m">Episode #1</button></li>
+                    <li><button data-plotline-show="2" data-city="kinshasa" class="header-m">Episode #2</button></li>
+                    <li><button data-plotline-show="3" data-city="guangzhou" class="header-m">Episode #3</button></li>
+                    <li><button data-plotline-show="4" data-city="kinshasa" class="header-m">Episode #4</button></li>
+                    <li><button data-plotline-show="5" data-city="berlin" class="header-m">Episode #5</button></li>
                 </ul>
             </div>
         </section>

@@ -95,6 +95,8 @@
     var videoVolume = document.querySelector('[data-volume]');
     var videoElement = document.querySelector('video');
 
+    videoElement.setAttribute('src', 'https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761');
+
     videoState.addEventListener('click', function() {
         var currentState = this.dataset.status;
         console.log(currentState);
@@ -126,17 +128,44 @@
     // plotline
     var activePlotline = document.querySelector('[data-active]');
     var plotlineButtons = document.querySelectorAll('[data-plotline-show]');
+    var activeCityPath = document.querySelectorAll('path[data-active]');
 
     [].forEach.call(plotlineButtons, function(plotlineButton) {
         plotlineButton.addEventListener('click', function() {
             var plotlineToShow = this.dataset.plotlineShow;
+            var city = this.dataset.city;
             var newPlotline = document.querySelector('[data-plotline="' + plotlineToShow + '"]');
-            activePlotline = document.querySelector('[data-active]');
+            var cityPath = document.querySelector('[data-city-path="' + city + '"]');
+            var cityPoint = document.querySelector('[data-city-point="' + city + '"]');
+            var cityPlane = document.querySelector('[data-city-plane="' + city + '"]');
+            activeCityPath = document.querySelectorAll('[data-active]');
 
-            activePlotline.removeAttribute('data-active');
+            if (activeCityPath) {
+                [].forEach.call(activeCityPath, function(path) {
+                    path.removeAttribute('data-active');
+                });
+            }
+
+            cityPath.setAttribute('data-active', true);
+            cityPoint.setAttribute('data-active', true);
+            cityPlane.setAttribute('data-active', true);
             newPlotline.setAttribute('data-active', true);
 
         });
+    });
+
+    // map
+    window.addEventListener("load", function() {
+        var svgObject = document.querySelector('[data-svg-object]');
+
+        svgObject.parentElement.replaceChild(svgObject.contentDocument.documentElement.cloneNode(true), svgObject);
+
+        if (activeCityPath.length === 0) {
+            document.querySelector('[data-city-path="berlin"]').setAttribute('data-active', true);
+            document.querySelector('[data-city-point="berlin"]').setAttribute('data-active', true);
+            document.querySelector('[data-city-plane="berlin"]').setAttribute('data-active', true);
+        }
+
     });
 
     // mobile nav
