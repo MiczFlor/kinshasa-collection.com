@@ -3,7 +3,6 @@
     'use strict';
 
     var VERSION = '0.1';
-    var iframeTrailerSrc = document.querySelector('#trailer-dialog iframe').getAttribute('src');
 
     // Function to animate the scroll
     var smoothScroll = function(anchor, duration) {
@@ -79,27 +78,30 @@
 
     // Instantiate a new A11yDialog module
     var trailerDialog = new A11yDialog(trailerDialogEl, mainEl);
+    var videoIframeElement = document.querySelector('.dialog-content video');
 
     trailerDialog.on('show', function(dialogEl, triggerEl) {
-        dialogEl.querySelector('iframe').setAttribute('src', iframeTrailerSrc);
+        videoIframeElement.play();
     });
 
     trailerDialog.on('hide', function(dialogEl, triggerEl) {
-        var iframeSrc = dialogEl.querySelector('iframe').getAttribute('src');
-        iframeTrailerSrc = iframeSrc;
-        dialogEl.querySelector('iframe').setAttribute('src', '');
+        videoIframeElement.pause();
     });
 
     // video controls
     var videoState = document.querySelector('[data-status]');
     var videoVolume = document.querySelector('[data-volume]');
     var videoElement = document.querySelector('video');
+    var videoElements = document.querySelectorAll('video');
 
-    videoElement.setAttribute('src', 'https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761');
+    [].forEach.call(videoElements, function(video) {
+        video.setAttribute('src', 'https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761');
+
+    });
 
     videoState.addEventListener('click', function() {
         var currentState = this.dataset.status;
-        console.log(currentState);
+
         if (currentState === 'play') {
             this.dataset.status = 'pause';
             this.textContent = 'Play video';
@@ -158,7 +160,10 @@
     window.addEventListener("load", function() {
         var svgObject = document.querySelector('[data-svg-object]');
 
-        svgObject.parentElement.replaceChild(svgObject.contentDocument.documentElement.cloneNode(true), svgObject);
+        if (svgObject.contentDocument.documentElement) {
+            svgObject.parentElement.replaceChild(svgObject.contentDocument.documentElement.cloneNode(true), svgObject);
+        }
+
 
         if (activeCityPath.length === 0) {
             document.querySelector('[data-city-path="berlin"]').setAttribute('data-active', true);
