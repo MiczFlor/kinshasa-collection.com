@@ -81,6 +81,36 @@
     }
 }
 
+.video-controls {
+    display: block;
+}
+
+.social {
+    float: right;
+    a {
+        display: inline-block;
+        background-color: transparent;
+        background-size: 39px 39x;
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 39px;
+        height: 39px;
+        margin: 0 20px 0 0;
+        text-indent: -2017em;
+        cursor: pointer;
+        float: right;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+    .social-fb {
+        background-image: url(./build/media/facebook.svg);
+    }
+    .social-vimeo {
+        background-image: url(./build/media/vimeo.svg);
+    }
+}
+
 .enhanced {
     .video-controls {
         position: absolute;
@@ -100,12 +130,15 @@
             text-indent: -2017em;
             border: 1px solid $white;
             cursor: pointer;
+            &:hover {
+                opacity: 0.7;
+            }
         }
         [data-status="play"] {
-            background-image: url(./build/media/play.svg);
+            background-image: url(./build/media/pause.svg);
         }
         [data-status="pause"] {
-            background-image: url(./build/media/pause.svg);
+            background-image: url(./build/media/play.svg);
         }
         [data-volume="on"] {
             background-image: url(./build/media/volume-off.svg);

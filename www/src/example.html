@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example ||Kinshasa Collection</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#000000">
+    <meta name="theme-color" content="#c3e4d9">
+
+    <link rel="stylesheet" href="../build/css/styles.css" inline>
+
+    <script>
+        document.documentElement.className = 'enhanced';
+    </script>
+</head>
+
+<body class="page-texts">
+
+    <header>
+        <div class="col-12">
+            <a href="index.html" title="Back to website"></a>
+            <h1 class="header-xl">This is a good title and a subtitle</h1>
+        </div>
+    </header>
+
+    <main class="col-12">
+        <aside>
+            <p class="webnav">By Laura Micz</p>
+            <p class="webnav">Some date</p>
+            <p class="webnav"><a href="#">PDF-Download</a></p>
+        </aside>
+
+        <section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aliquid ut excepturi sit asperiores! Ut quibusdam temporibus repellendus obcaecati provident, explicabo quidem distinctio esse dolorem numquam, voluptatem a molestias voluptates!</p>
+            <p>Lorem <a href="#">ipsum</a> dolor sit amet, consectetur adipisicing elit. Voluptatem aliquid ut excepturi sit asperiores! Ut quibusdam temporibus repellendus obcaecati provident, explicabo quidem distinctio esse dolorem numquam, voluptatem
+                a molestias voluptates!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aliquid ut excepturi sit asperiores! Ut quibusdam temporibus repellendus obcaecati provident, explicabo quidem distinctio esse dolorem numquam, voluptatem a molestias voluptates!</p>
+        </section>
+
+        <footer>
+            <h4 class="webnav-bold">Footnotes</h4>
+
+            <ol>
+                <li class="webnav">This is a first footnote</li>
+                <li class="webnav">This is a second footnote</li>
+            </ol>
+
+            <a class="btn text-l" href="index.html">Back to website</a>
+        </footer>
+    </main>
+
+    <script src="./build/js/load.js"></script>
+    <script>
+        WebFontConfig = {
+            google: {
+                families: ['Average', 'Fjalla One', 'Roboto Condensed:400,700']
+            }
+        };
+        loadjs('./build/js/webfontloader.js');
+
+        // cut the mustard
+        if ('visibilityState' in document) {
+            document.documentElement.classList.remove('enhanced');
+        }
+    </script>
+</body>
+
+</html>

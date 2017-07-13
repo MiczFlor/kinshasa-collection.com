@@ -67,6 +67,9 @@
             [data-city-plane],
             [data-city-point] {
                 opacity: 0;
+            }
+            [data-city-path],
+            [data-city-point] {
                 transition: all 660ms ease-in-out;
             }
             path[data-city-path][data-active] {
@@ -77,6 +80,10 @@
             }
             path[data-city-point][data-active] {
                 opacity: 1;
+            }
+            path[data-city-plane="kinshasa"].revert {
+                transform: translate(129px, 2px) rotate(84deg);
+                transform-origin: center center;
             }
             div {
                 position: absolute;
