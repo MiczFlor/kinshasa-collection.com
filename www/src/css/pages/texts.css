@@ -1,0 +1,75 @@
+.page-texts {
+    header {
+        background: $grad-citrus;
+        padding: 20px 0;
+        a {
+            width: 160px;
+            background: url(./build/media/logo-black.png) no-repeat 0 0;
+            background-size: contain;
+            display: block;
+            float: left;
+            margin-left: 20px;
+            text-indent: -2017em;
+        }
+        h1 {
+            color: $white;
+            float: left;
+            margin-left: 20px;
+        }
+    }
+    main {
+        display: block;
+        margin-top: 30px;
+        a {
+            color: $blue;
+        }
+    }
+    aside {
+        width: 160px;
+        float: left;
+        margin-right: 20px;
+        margin-top: 10px;
+        p {
+            padding: 0 0 4px 0;
+        }
+    }
+    section {
+        float: right;
+        margin-bottom: 40px;
+        width: calc(100% - 180px);
+        p {
+            font-family: $average;
+            font-size: 18px;
+            line-height: 22px;
+            font-weight: 400;
+            margin: 10px 0 0 0;
+        }
+        p:first-of-type:first-letter {
+            float: left;
+            font-size: 42px;
+            line-height: 40px;
+            margin: 0 6px 0 0;
+        }
+    }
+    footer {
+        clear: both;
+        margin-left: 180px;
+        padding-top: 20px;
+        border-top: 1px solid $lightblack;
+        width: 250px;
+        ol {
+            margin: 10px 0;
+            padding: 0 0 0 15px;
+        }
+        li {
+            padding: 0 0 4px 0;
+        }
+        .btn {
+            display: inline-block;
+            color: $black;
+            border-color: $black;
+            text-decoration: none;
+            margin: 20px 0 40px 0;
+        }
+    }
+}

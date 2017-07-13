@@ -80,12 +80,19 @@
     var trailerDialog = new A11yDialog(trailerDialogEl, mainEl);
     var videoIframeElement = document.querySelector('.dialog-content video');
 
+    var vimeoOptions = {
+        id: 50467632
+    };
+
+    var vimeoPlayer = new Vimeo.Player('vimeo-iframe', vimeoOptions);
+
+
     trailerDialog.on('show', function(dialogEl, triggerEl) {
-        videoIframeElement.play();
+        vimeoPlayer.play();
     });
 
     trailerDialog.on('hide', function(dialogEl, triggerEl) {
-        videoIframeElement.pause();
+        vimeoPlayer.pause();
     });
 
     // video controls
@@ -141,6 +148,12 @@
             var cityPoint = document.querySelector('[data-city-point="' + city + '"]');
             var cityPlane = document.querySelector('[data-city-plane="' + city + '"]');
             activeCityPath = document.querySelectorAll('[data-active]');
+            console.log(plotlineToShow);
+            if (plotlineToShow == 4) {
+                document.querySelector('[data-city-plane="kinshasa"]').classList.add('revert');
+            } else {
+                document.querySelector('[data-city-plane="kinshasa"]').classList.remove('revert');
+            }
 
             if (activeCityPath) {
                 [].forEach.call(activeCityPath, function(path) {

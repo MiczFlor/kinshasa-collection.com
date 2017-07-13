@@ -37,6 +37,9 @@
                     <a href="#protagonists">Protagonists</a>
                 </li>
                 <li>
+                    <a href="#texts">Texts</a>
+                </li>
+                <li>
                     <a href="#credits">Credits</a>
                 </li>
                 <li>
@@ -48,7 +51,7 @@
                 <li>
                     <select>
                         <option value="/english">English</option>
-                        <option value="/francais">français</option>
+                        <option value="/francais">Français</option>
                         <option value="/deutsch">Deutsch</option>
                     </select>
                 </li>
@@ -73,10 +76,7 @@
             <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
             <div class="dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
                 <div role="document">
-                    <video autoplay loop muted plays-inline>
-                        <source src="" type="video/mp4">
-                    </video>
-                    <button data-a11y-dialog-hide class="dialog-close" aria-label="Close this dialog window">&times;</button>
+                    <div id="vimeo-iframe"></div>
                 </div>
             </div>
         </div>
@@ -84,7 +84,13 @@
         <div class="video-controls col-12">
             <button data-status="play">Stop video</button>
             <button data-volume="off">Volume on</button>
+
+            <div class="social">
+                <a class="social-fb" href="#">Facebook</a>
+                <a class="social-vimeo" href="#">Vimeo</a>
+            </div>
         </div>
+
     </header>
     <main>
         <section id="about" class="section-about">
@@ -185,7 +191,7 @@
                     <a class="text-l btn" href="#">Watch</a>
                 </li>
                 <li class="episode-vimeo">
-                    <h3 class="header-m">On Vimeo</h3>
+                    <h3 class="header-m">Our Vimeo channel</h3>
                     <a class="text-l btn" href="#">Watch</a>
                 </li>
             </ul>
@@ -318,6 +324,38 @@
             </ul>
         </section>
 
+        <section id="texts" class="section-texts">
+            <h2 class="header-xl">Texts</h2>
+
+            <ul class="col-12 texts-list">
+                <li>
+                    <h3 class="header-m">This is a good title and a subtitle</h3>
+                    <p class="webnav">By Laura Micz</p>
+                    <a class="btn" href="example.html">Read</a>
+                </li>
+                <li>
+                    <h3 class="header-m">This is a good title and a subtitle</h3>
+                    <p class="webnav">By Laura Micz</p>
+                    <a class="btn" href="example.html">Read</a>
+                </li>
+                <li>
+                    <h3 class="header-m">This is a good title and a subtitle</h3>
+                    <p class="webnav">By Laura Micz</p>
+                    <a class="btn" href="example.html">Read</a>
+                </li>
+                <li>
+                    <h3 class="header-m">This is a good title and a subtitle</h3>
+                    <p class="webnav">By Laura Micz</p>
+                    <a class="btn" href="example.html">Read</a>
+                </li>
+                <li>
+                    <h3 class="header-m">This is a good title and a subtitle</h3>
+                    <p class="webnav">By Laura Micz</p>
+                    <a class="btn" href="example.html">Read</a>
+                </li>
+            </ul>
+        </section>
+
         <section class="section-bottom">
 
             <div id="credits" class="section-credits col-12">
@@ -405,7 +443,7 @@
 
         // cut the mustard
         if ('visibilityState' in document) {
-            loadjs(['./build/js/a11y-dialog.js', './build/js/main.js'], {
+            loadjs(['https://player.vimeo.com/api/player.js', './build/js/a11y-dialog.js', './build/js/main.js'], {
                 success: function() {
                     console.log('Hey, you are using an modern browser, let\'s enhance your experience');
                 },
