@@ -1,5 +1,5 @@
 .section-about {
-    background-color: $lightgreen;
+    background: $grad-sea;
     h2 {
         padding: 40px 0 0 0;
         color: $golden;

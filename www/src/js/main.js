@@ -47,7 +47,7 @@
     };
 
     // Define smooth scroll links
-    var scrollToggle = document.querySelectorAll('nav a');
+    var scrollToggle = document.querySelectorAll('[data-smooth-scroll]');
 
     // For each smooth scroll link
     [].forEach.call(scrollToggle, function(toggle) {

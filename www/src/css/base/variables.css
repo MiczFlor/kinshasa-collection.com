@@ -20,7 +20,7 @@ $lightgreen: #c3e4d9;
 
 $grad-citrus: linear-gradient(135deg, rgba(112, 204, 203, 1) 0%, rgba(230, 241, 75, 1) 100%);
 $grad-purple: linear-gradient(135deg, rgba(112, 204, 203, 1) 0%, rgba(213, 16, 85, 1) 100%);
-$grad-sea: linear-gradient(135deg, rgba(212, 240, 241, 1) 0%, rgba(195, 228, 217, 1) 100%);
+$grad-sea: linear-gradient(135deg, #6ECCCC 0%, #37A47D 100%);
 
 /* grid */
 

@@ -4,10 +4,19 @@
     color: $white;
     padding-bottom: 140px;
     position: relative;
+    min-height: 100vh;
     a {
         @extend .text-l;
         color: $white;
         text-decoration: none;
+    }
+    a.btn {
+        transition: all 0.2s linear;
+        &:hover,
+        &:focus {
+            color: $pink;
+            border-color: $pink;
+        }
     }
     &:before {
         content: "";
@@ -62,7 +71,7 @@
     .main-nav {
         text-align: right;
         display: block;
-        padding-bottom: 140px;
+        padding-bottom: 60px;
         li {
             display: inline-block;
             padding: 20px 0 20px 20px;
@@ -112,6 +121,9 @@
 }
 
 .enhanced {
+    body {
+        overflow-x: hidden;
+    }
     .video-controls {
         position: absolute;
         bottom: 30px;
@@ -154,13 +166,42 @@
         border: 1px solid white;
         padding: 8px;
         cursor: pointer;
+        position: absolute;
+        z-index: 100;
+        right: 20px;
+        top: 10px;
+    }
+    .header-main {
+        padding-top: 80px;
     }
     .size-small .main-nav ul {
-        height: 0;
-        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 100vw;
+        background: $grad-purple;
+        opacity: 0;
+        z-index: -1;
+        text-align: center;
+        padding-top: 100px;
         transition: all 300ms ease-in-out;
+        li {
+            display: block;
+            text-align: center;
+            padding: 0 0 10px 0;
+            margin: 0 auto 10px auto;
+            width: 400px;
+            max-width: 90%;
+        }
+        a:after {
+            display: none;
+        }
     }
     .menu-open.size-small .main-nav ul {
-        min-height: 200px;
+        opacity: 1;
+        z-index: 1;
     }
 }
