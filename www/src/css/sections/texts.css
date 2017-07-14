@@ -27,7 +27,7 @@
         padding: 10px;
         min-height: 200px;
         position: relative;
-        background: $grad-citrus;
+        background: $grad-sea;
         z-index: 1;
     }
     .btn {
@@ -35,6 +35,12 @@
         position: absolute;
         bottom: 10px;
         right: 10px;
+        transition: all 0.2s linear;
+        &:hover,
+        &:focus {
+            color: $pink;
+            border-color: $pink;
+        }
     }
 }
 
