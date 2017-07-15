@@ -44,7 +44,7 @@ gulp.task('compress', function(cb) {
     );
 });
 
-gulp.task('inlinesource', function() {
+gulp.task('inlinesource', ['styles'], function() {
     return gulp.src('src/*.html')
         .pipe(inlinesource())
         .pipe(gulp.dest(''));
@@ -77,7 +77,7 @@ gulp.task('watch', function() {
     gulp.watch('src/**/*.js', ['compress', browserSync.reload]);
 
     // Watch any files in root html, reload on change
-    gulp.watch("src/**/*.html", ['styles', 'inlinesource', browserSync.reload]);
+    gulp.watch("src/**/*.html", ['inlinesource', browserSync.reload]);
 
 });
 

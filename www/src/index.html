@@ -25,7 +25,13 @@
     <header class="section-header">
 
         <nav class="col-12 main-nav">
-            <button hidden data-trigger="menu" class="text-m">Menu</button>
+            <button hidden data-trigger="menu" class="text-m">
+                <span>Menu</span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul>
                 <li>
                     <a data-smooth-scroll href="#about">About</a>
@@ -443,7 +449,7 @@
 
         // cut the mustard
         if ('visibilityState' in document) {
-            loadjs(['https://player.vimeo.com/api/player.js', './build/js/a11y-dialog.js', './build/js/main.js'], {
+            loadjs(['./build/js/vimeo-player.js', './build/js/a11y-dialog.js', './build/js/main.js'], {
                 success: function() {
                     console.log('Hey, you are using an modern browser, let\'s enhance your experience');
                 },

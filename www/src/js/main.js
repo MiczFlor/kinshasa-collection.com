@@ -102,7 +102,7 @@
     var videoElements = document.querySelectorAll('video');
 
     [].forEach.call(videoElements, function(video) {
-        video.setAttribute('src', 'https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761');
+        video.setAttribute('src', './build/media/example-video.mp4');
 
     });
 
@@ -191,6 +191,7 @@
 
     if (viewportWidth < 960) {
         var menuTrigger = document.querySelector(['[data-trigger="menu"]']);
+        var menuLinks = document.querySelectorAll('[data-smooth-scroll]');
 
         menuTrigger.removeAttribute('hidden');
         document.body.classList.add('size-small');
@@ -198,9 +199,19 @@
         menuTrigger.addEventListener('click', function() {
             document.body.classList.toggle('menu-open');
         });
+
+        [].forEach.call(menuLinks, function(menuLink) {
+            menuLink.addEventListener('click', function() {
+                document.body.classList.remove('menu-open');
+            });
+        });
     }
 
 
-    console.log('JavaScript file with version v' + VERSION + ' loaded with no errors!1')
+    console.log('JavaScript file with version v' + VERSION + ' loaded with no errors!1');
+
+    window.onerror = function() {
+        document.documentElement.className = '';
+    };
 
 })();
