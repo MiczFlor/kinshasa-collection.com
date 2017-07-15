@@ -1,8 +1,10 @@
-const VERSION = '0.1.12';
+const VERSION = '0.1.13';
 const CACHE = 'static' + VERSION;
 
 self.addEventListener('install', function(evt) {
-    evt.waitUntil(precache());
+    event.waitUntil(precache()
+        .then(() => self.skipWaiting())
+    );
 });
 
 self.addEventListener('fetch', function(evt) {

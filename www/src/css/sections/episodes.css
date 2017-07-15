@@ -75,6 +75,21 @@
             background: rgba(127, 127, 127, 0.1);
         }
     }
+    .btn {
+        display: inline-block;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        transition: all 0.2s linear;
+        &:hover,
+        &:focus {
+            color: $pink;
+            border-color: $pink;
+        }
+    }
+}
+
+.no-webp {
     .episode-1:after {
         background-image: url(./build/media/episode-1.jpg);
     }
@@ -93,17 +108,26 @@
     .episode-vimeo:after {
         background-image: url(./build/media/episode-vimeo.jpg);
     }
-    .btn {
-        display: inline-block;
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        transition: all 0.2s linear;
-        &:hover,
-        &:focus {
-            color: $pink;
-            border-color: $pink;
-        }
+}
+
+.webp {
+    .episode-1:after {
+        background-image: url(./build/media/episode-1.webp);
+    }
+    .episode-2:after {
+        background-image: url(./build/media/episode-2.webp);
+    }
+    .episode-3:after {
+        background-image: url(./build/media/episode-3.webp);
+    }
+    .episode-4:after {
+        background-image: url(./build/media/episode-4.webp);
+    }
+    .episode-5:after {
+        background-image: url(./build/media/episode-5.webp);
+    }
+    .episode-vimeo:after {
+        background-image: url(./build/media/episode-vimeo.webp);
     }
 }
 
