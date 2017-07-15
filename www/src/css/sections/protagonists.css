@@ -50,6 +50,17 @@
         &:hover:before {
             background: rgba(127, 127, 127, 0.6);
         }
+        h3 {
+            padding: 0 0 20px 0;
+        }
+        &:hover div {
+            transform: translateY(0);
+        }
+    }
+}
+
+.no-webp .protagonists-list {
+    li {
         &.protagonist-1:after {
             background-image: url(./build/media/protagonist-1.jpg);
         }
@@ -95,11 +106,55 @@
         &.protagonist-15:after {
             background-image: url(./build/media/protagonist-15.jpg);
         }
-        h3 {
-            padding: 0 0 20px 0;
+    }
+}
+
+.webp .protagonists-list {
+    li {
+        &.protagonist-1:after {
+            background-image: url(./build/media/protagonist-1.webp);
         }
-        &:hover div {
-            transform: translateY(0);
+        &.protagonist-2:after {
+            background-image: url(./build/media/protagonist-2.webp);
+        }
+        &.protagonist-3:after {
+            background-image: url(./build/media/protagonist-3.webp);
+        }
+        &.protagonist-4:after {
+            background-image: url(./build/media/protagonist-4.webp);
+        }
+        &.protagonist-5:after {
+            background-image: url(./build/media/protagonist-5.webp);
+        }
+        &.protagonist-6:after {
+            background-image: url(./build/media/protagonist-6.webp);
+        }
+        &.protagonist-7:after {
+            background-image: url(./build/media/protagonist-7.webp);
+        }
+        &.protagonist-8:after {
+            background-image: url(./build/media/protagonist-8.webp);
+        }
+        &.protagonist-9:after {
+            background-image: url(./build/media/protagonist-9.webp);
+        }
+        &.protagonist-10:after {
+            background-image: url(./build/media/protagonist-10.webp);
+        }
+        &.protagonist-11:after {
+            background-image: url(./build/media/protagonist-11.webp);
+        }
+        &.protagonist-12:after {
+            background-image: url(./build/media/protagonist-12.webp);
+        }
+        &.protagonist-13:after {
+            background-image: url(./build/media/protagonist-13.webp);
+        }
+        &.protagonist-14:after {
+            background-image: url(./build/media/protagonist-14.webp);
+        }
+        &.protagonist-15:after {
+            background-image: url(./build/media/protagonist-15.webp);
         }
     }
 }
