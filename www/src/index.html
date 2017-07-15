@@ -17,6 +17,17 @@
     <link rel="stylesheet" href="../build/css/styles.css" inline>
 
     <script>
+        var elem = document.createElement('canvas');
+
+        if (!!(elem.getContext && elem.getContext('2d'))) {
+            if (elem.toDataURL('image/webp').indexOf('data:image/webp') == 0) {
+                document.documentElement.classList.add('webp');
+            } else {
+                document.documentElement.className = 'no-webp';
+            }
+        } else {
+            document.documentElement.className = 'no-webp';
+        }
     </script>
 </head>
 
@@ -460,19 +471,10 @@
             });
         }
 
-        /*
         if (navigator.serviceWorker) {
             navigator.serviceWorker.register('./service-worker.js', {
                 scope: './'
             });
-        }*/
-
-        var elem = document.createElement('canvas');
-
-        if (!!(elem.getContext && elem.getContext('2d'))) {
-            if (elem.toDataURL('image/webp').indexOf('data:image/webp') == 0) {
-                document.documentElement.classList.add('webp');
-            }
         }
     </script>
 </body>
