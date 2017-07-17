@@ -9,12 +9,13 @@
 }
 
 .dialog-content {
-    background-color: rgb(255, 255, 255);
+    background-color: $black;
     z-index: 3;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    video,
     iframe {
         max-width: 100%;
     }
@@ -56,4 +57,6 @@
     text-align: center;
     cursor: pointer;
     transition: 0.15s;
+    font-size: 30px;
+    color: $golden;
 }

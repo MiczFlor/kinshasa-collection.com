@@ -3,7 +3,6 @@
     'use strict';
 
     var VERSION = '0.1';
-    var iframeTrailerSrc = document.querySelector('#trailer-dialog iframe').getAttribute('src');
 
     // Function to animate the scroll
     var smoothScroll = function(anchor, duration) {
@@ -48,7 +47,7 @@
     };
 
     // Define smooth scroll links
-    var scrollToggle = document.querySelectorAll('nav a');
+    var scrollToggle = document.querySelectorAll('[data-smooth-scroll]');
 
     // For each smooth scroll link
     [].forEach.call(scrollToggle, function(toggle) {
@@ -79,17 +78,140 @@
 
     // Instantiate a new A11yDialog module
     var trailerDialog = new A11yDialog(trailerDialogEl, mainEl);
+    var videoIframeElement = document.querySelector('.dialog-content video');
+
+    var vimeoOptions = {
+        id: 50467632
+    };
+
+    var vimeoPlayer = new Vimeo.Player('vimeo-iframe', vimeoOptions);
+
 
     trailerDialog.on('show', function(dialogEl, triggerEl) {
-        dialogEl.querySelector('iframe').setAttribute('src', iframeTrailerSrc);
+        vimeoPlayer.play();
     });
 
     trailerDialog.on('hide', function(dialogEl, triggerEl) {
-        var iframeSrc = dialogEl.querySelector('iframe').getAttribute('src');
-        iframeTrailerSrc = iframeSrc;
-        dialogEl.querySelector('iframe').setAttribute('src', '');
+        vimeoPlayer.pause();
     });
 
-    console.log('JavaScript file with version v' + VERSION + ' loaded with no errors!1')
+    // video controls
+    var videoState = document.querySelector('[data-status]');
+    var videoVolume = document.querySelector('[data-volume]');
+    var videoElement = document.querySelector('video');
+    var videoElements = document.querySelectorAll('video');
+
+    [].forEach.call(videoElements, function(video) {
+        video.setAttribute('src', './build/media/example-video.mp4');
+
+    });
+
+    videoState.addEventListener('click', function() {
+        var currentState = this.dataset.status;
+
+        if (currentState === 'play') {
+            this.dataset.status = 'pause';
+            this.textContent = 'Play video';
+            videoElement.pause();
+        } else {
+            this.dataset.status = 'play';
+            this.textContent = 'Stop video';
+            videoElement.play();
+        }
+    });
+
+    videoVolume.addEventListener('click', function() {
+        var volume = this.dataset.volume;
+
+        if (volume === 'on') {
+            this.dataset.volume = 'off';
+            this.textContent = 'Volume off';
+            videoElement.muted = false;
+        } else {
+            this.dataset.volume = 'on';
+            this.textContent = 'Volume on';
+            videoElement.muted = true;
+        }
+    });
+
+    // plotline
+    var activePlotline = document.querySelector('[data-active]');
+    var plotlineButtons = document.querySelectorAll('[data-plotline-show]');
+    var activeCityPath = document.querySelectorAll('path[data-active]');
+
+    [].forEach.call(plotlineButtons, function(plotlineButton) {
+        plotlineButton.addEventListener('click', function() {
+            var plotlineToShow = this.dataset.plotlineShow;
+            var city = this.dataset.city;
+            var newPlotline = document.querySelector('[data-plotline="' + plotlineToShow + '"]');
+            var cityPath = document.querySelector('[data-city-path="' + city + '"]');
+            var cityPoint = document.querySelector('[data-city-point="' + city + '"]');
+            var cityPlane = document.querySelector('[data-city-plane="' + city + '"]');
+            activeCityPath = document.querySelectorAll('[data-active]');
+            console.log(plotlineToShow);
+            if (plotlineToShow == 4) {
+                document.querySelector('[data-city-plane="kinshasa"]').classList.add('revert');
+            } else {
+                document.querySelector('[data-city-plane="kinshasa"]').classList.remove('revert');
+            }
+
+            if (activeCityPath) {
+                [].forEach.call(activeCityPath, function(path) {
+                    path.removeAttribute('data-active');
+                });
+            }
+
+            cityPath.setAttribute('data-active', true);
+            cityPoint.setAttribute('data-active', true);
+            cityPlane.setAttribute('data-active', true);
+            newPlotline.setAttribute('data-active', true);
+
+        });
+    });
+
+    // map
+    window.addEventListener("load", function() {
+        var svgObject = document.querySelector('[data-svg-object]');
+
+        if (svgObject.contentDocument.documentElement) {
+            svgObject.parentElement.replaceChild(svgObject.contentDocument.documentElement.cloneNode(true), svgObject);
+        }
+
+
+        if (activeCityPath.length === 0) {
+            document.querySelector('[data-city-path="berlin"]').setAttribute('data-active', true);
+            document.querySelector('[data-city-point="berlin"]').setAttribute('data-active', true);
+            document.querySelector('[data-city-plane="berlin"]').setAttribute('data-active', true);
+        }
+
+    });
+
+    // mobile nav
+    var viewportWidth = window.innerWidth;
+
+    if (viewportWidth < 960) {
+        var menuTrigger = document.querySelector(['[data-trigger="menu"]']);
+        var menuLinks = document.querySelectorAll('[data-smooth-scroll]');
+
+        menuTrigger.removeAttribute('hidden');
+        document.body.classList.add('size-small');
+
+        menuTrigger.addEventListener('click', function() {
+            document.body.classList.toggle('menu-open');
+        });
+
+        [].forEach.call(menuLinks, function(menuLink) {
+            menuLink.addEventListener('click', function() {
+                document.body.classList.remove('menu-open');
+            });
+        });
+    }
+
+
+    console.log('JavaScript file with version v' + VERSION + ' loaded with no errors!1');
+
+    window.onerror = function() {
+        document.documentElement.className = '';
+    };
 
 })();

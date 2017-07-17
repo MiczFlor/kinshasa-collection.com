@@ -9,6 +9,8 @@
 @import 'sections/about.css';
 @import 'sections/plotline.css';
 @import 'sections/episodes.css';
+@import 'sections/texts.css';
 @import 'sections/protagonists.css';
 @import 'sections/bottom.css';
 @import 'sections/footer.css';
+@import 'pages/texts.css';
