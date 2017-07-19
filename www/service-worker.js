@@ -1,14 +1,13 @@
-const VERSION = '0.1.16';
+const VERSION = '0.1.17';
 const CACHE = 'static' + VERSION;
 
 self.addEventListener('install', function(evt) {
-    event.waitUntil(precache()
+    evt.waitUntil(precache()
         .then(() => self.skipWaiting())
     );
 });
 
 self.addEventListener('fetch', function(evt) {
-
     evt.respondWith(fromNetwork(evt.request, 400).catch(function() {
         return fromCache(evt.request);
     }));

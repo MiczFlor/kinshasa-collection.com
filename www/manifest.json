@@ -15,7 +15,7 @@
     "theme_color": "#c3e4d9",
     "background_color": "#c3e4d9",
     "start_url": "./?source=homescreen",
-    "display": "browser",
+    "display": "minimal-ui",
     "theme_color": "#c3e4d9",
     "background_color": "#c3e4d9"
 }
