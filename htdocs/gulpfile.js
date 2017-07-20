@@ -45,7 +45,7 @@ gulp.task('compress', function(cb) {
 });
 
 gulp.task('inlinesource', ['styles'], function() {
-    return gulp.src('src/*.html')
+    return gulp.src('src/**/*.html')
         .pipe(inlinesource())
         .pipe(gulp.dest(''));
 });
