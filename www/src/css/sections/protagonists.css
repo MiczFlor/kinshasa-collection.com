@@ -68,82 +68,82 @@
 .protagonists-list {
     li {
         &.protagonist-1:after {
-            background-image: url(./build/media/protagonist-1.jpg);
+            background-image: url(./build/media/wendy-bashi-protagonist.jpg);
         }
         &.protagonist-2:after {
-            background-image: url(./build/media/protagonist-2.jpg);
+            background-image: url(./build/media/pascal-capitolin-protagonist.jpg);
         }
         &.protagonist-3:after {
-            background-image: url(./build/media/protagonist-3.jpg);
+            background-image: url(./build/media/adrian-dausend-protagonist.jpg);
         }
         &.protagonist-4:after {
-            background-image: url(./build/media/protagonist-4.jpg);
+            background-image: url(./build/media/tracy-gbiayu-protagonist.jpg);
         }
         &.protagonist-5:after {
-            background-image: url(./build/media/protagonist-5.jpg);
+            background-image: url(./build/media/alex-gerbaulet-protagonist.jpg);
         }
         &.protagonist-6:after {
-            background-image: url(./build/media/protagonist-6.jpg);
+            background-image: url(./build/media/patrizia-herberger-protagonist.jpg);
         }
         &.protagonist-7:after {
-            background-image: url(./build/media/protagonist-7.jpg);
+            background-image: url(./build/media/tshoper-kabambi-protagonist.jpg);
         }
         &.protagonist-8:after {
-            background-image: url(./build/media/protagonist-8.jpg);
+            background-image: url(./build/media/patrick-ken-kalala-protagonist.jpg);
         }
         &.protagonist-9:after {
-            background-image: url(./build/media/protagonist-9.jpg);
+            background-image: url(./build/media/jana-keuchel-protagonist.jpg);
         }
         &.protagonist-10:after {
-            background-image: url(./build/media/protagonist-10.jpg);
+            background-image: url(./build/media/julia-kim-protagonist.jpg);
         }
         &.protagonist-11:after {
-            background-image: url(./build/media/protagonist-11.jpg);
+            background-image: url(./build/media/wilfried-luzele-lovalova-protagonist.jpg);
         }
         &.protagonist-12:after {
-            background-image: url(./build/media/protagonist-12.jpg);
+            background-image: url(./build/media/madhi-kwete-madikumu-protagonist.jpg);
         }
         &.protagonist-13:after {
-            background-image: url(./build/media/protagonist-13.jpg);
+            background-image: url(./build/media/daniel-mbezo-protagonist.jpg);
         }
         &.protagonist-14:after {
-            background-image: url(./build/media/protagonist-14.jpg);
+            background-image: url(./build/media/goitseone-montsho-protagonist.jpg);
         }
         &.protagonist-15:after {
-            background-image: url(./build/media/protagonist-15.jpg);
+            background-image: url(./build/media/anthony-muzuyi-golden-boy-protagonist.jpg);
         }
         &.protagonist-16:after {
-            background-image: url(./build/media/protagonist-16.jpg);
+            background-image: url(./build/media/cedrick-nzolo-demi-dieu-protagonist.jpg);
         }
         &.protagonist-17:after {
-            background-image: url(./build/media/protagonist-17.jpg);
+            background-image: url(./build/media/lydie-okosa-protagonist.jpg);
         }
         &.protagonist-18:after {
-            background-image: url(./build/media/protagonist-18.jpg);
+            background-image: url(./build/media/titi-saidi-protagonist.jpg);
         }
         &.protagonist-19:after {
-            background-image: url(./build/media/protagonist-19.jpg);
+            background-image: url(./build/media/beaute-sauvage-protagonist.jpg);
         }
         &.protagonist-20:after {
-            background-image: url(./build/media/protagonist-20.jpg);
+            background-image: url(./build/media/chris-shongo-protagonist.jpg);
         }
         &.protagonist-21:after {
-            background-image: url(./build/media/protagonist-21.jpg);
+            background-image: url(./build/media/djo-shongo-protagonist.jpg);
         }
         &.protagonist-22:after {
-            background-image: url(./build/media/protagonist-22.jpg);
+            background-image: url(./build/media/shaggy-pigeon-de-la-terre-protagonist.jpg);
         }
         &.protagonist-23:after {
-            background-image: url(./build/media/protagonist-23.jpg);
+            background-image: url(./build/media/irene-tshibola-protagonist.jpg);
         }
         &.protagonist-24:after {
-            background-image: url(./build/media/protagonist-24.jpg);
+            background-image: url(./build/media/dorothee-wenner-protagonist.jpg);
         }
         &.protagonist-25:after {
-            background-image: url(./build/media/protagonist-25.jpg);
+            background-image: url(./build/media/marly-yamba-protagonist.jpg);
         }
         &.protagonist-26:after {
-            background-image: url(./build/media/protagonist-26.jpg);
+            background-image: url(./build/media/zimu-zhang-protagonist.jpg);
         }
     }
 }
