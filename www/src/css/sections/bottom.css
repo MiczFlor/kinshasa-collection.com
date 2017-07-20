@@ -6,8 +6,14 @@
         color: $white;
         text-decoration: none;
     }
-    p {
-        padding-bottom: 14px;
+    .webnav {
+        padding-top: 10px;
+    }
+    .col-5 {
+        p {
+            font-size: 15px;
+            line-height: 18px;
+        }
     }
 }
 

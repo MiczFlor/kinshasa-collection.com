@@ -9,7 +9,7 @@
 }
 
 .protagonists-list {
-    padding: 30px 16px;
+    padding: 30px 16px 70px 16px;
     display: flex;
     flex-wrap: wrap;
     li {
@@ -28,6 +28,12 @@
             color: $white;
         }
         &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
             background: rgba(127, 127, 127, 0);
             transition: all 300ms ease-in-out;
         }
@@ -151,5 +157,12 @@
 @media all and (min-width: 60em) {
     .protagonists-list li {
         width: calc(33.333% - 20px);
+    }
+}
+
+@media all and (max-width: 640px) {
+    .protagonists-list li {
+        max-width: 300px;
+        margin: 0 auto;
     }
 }
