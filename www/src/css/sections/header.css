@@ -179,10 +179,10 @@
         [data-status="pause"] {
             background-image: url(./build/media/play.svg);
         }
-        [data-volume="on"] {
+        [data-volume="off"] {
             background-image: url(./build/media/volume-off.svg);
         }
-        [data-volume="off"] {
+        [data-volume="on"] {
             background-image: url(./build/media/volume-on.svg);
         }
     }

@@ -34,6 +34,7 @@
     background-size: 40px 40px;
     width: 40px;
     height: 40px;
+    z-index: 10000;
     &.is-active {
         opacity: 1;
     }
