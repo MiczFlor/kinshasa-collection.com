@@ -50,16 +50,19 @@
             z-index: -2;
             transition: all 400ms ease-in-out;
         }
-        &:hover:after {
+        &:hover:after,
+        &.hover:after {
             transform: scale(1.1);
         }
-        &:hover:before {
+        &:hover:before,
+        &.hover:before {
             background: rgba(127, 127, 127, 0.6);
         }
         h3 {
             padding: 0 0 20px 0;
         }
-        &:hover div {
+        &:hover div,
+        &.hover div {
             transform: translateY(0);
         }
     }

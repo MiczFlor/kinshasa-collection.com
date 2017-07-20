@@ -113,13 +113,12 @@
                 padding: 8px;
                 width: 100%;
                 cursor: pointer;
-                border: 4px solid transparent;
+                border: 4px solid $black;
                 border-image: $grad-purple;
                 border-image-slice: 1;
                 background: $white;
                 transtion: all .2s ease-in-out;
-                &:hover,
-                &:focus {
+                &[data-active-button] {
                     background: $grad-purple;
                     color: $white;
                 }

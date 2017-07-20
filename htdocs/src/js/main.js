@@ -99,6 +99,22 @@
         vimeoPlayer.pause();
     });
 
+    // protagonists
+    var protagonistsElements = document.querySelectorAll('.protagonists-list li');
+
+    [].forEach.call(protagonistsElements, function(protagonistsElement) {
+        protagonistsElement.addEventListener('click', function() {
+            [].forEach.call(protagonistsElements, function(protagonistsElement) {
+                protagonistsElement.classList.remove('hover');
+            });
+            this.classList.add('hover');
+        });
+
+        protagonistsElement.addEventListener('mouseover', function() {
+            this.click();
+        });
+    });
+
     // video controls
     var videoState = document.querySelector('[data-status]');
     var videoVolume = document.querySelector('[data-volume]');
@@ -107,7 +123,6 @@
 
     [].forEach.call(videoElements, function(video) {
         video.setAttribute('src', 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/257/9/226285539/794991965.mp4?token=1500573865-0xce6fceb8aaee7e6093786665d85443b84067b8d1');
-
     });
 
     videoState.addEventListener('click', function() {
@@ -139,39 +154,96 @@
     });
 
     // plotline
+    var timerPlotline;
+    var plotlineStarted = false;
     var activePlotline = document.querySelector('[data-active]');
     var plotlineButtons = document.querySelectorAll('[data-plotline-show]');
     var activeCityPath = document.querySelectorAll('path[data-active]');
 
+    var changePlotlines = function(plotline) {
+        var plotlineToShow = plotline.dataset.plotlineShow;
+        var city = plotline.dataset.city;
+        var newPlotline = document.querySelector('[data-plotline="' + plotlineToShow + '"]');
+        var cityPath = document.querySelector('[data-city-path="' + city + '"]');
+        var cityPoint = document.querySelector('[data-city-point="' + city + '"]');
+        var cityPlane = document.querySelector('[data-city-plane="' + city + '"]');
+        var activeButton = document.querySelector('[data-active-button]') || false;
+        activeCityPath = document.querySelectorAll('[data-active]');
+
+        if (plotlineToShow == 4) {
+            document.querySelector('[data-city-plane="kinshasa"]').classList.add('revert');
+        } else {
+            document.querySelector('[data-city-plane="kinshasa"]').classList.remove('revert');
+        }
+
+        if (activeCityPath) {
+            [].forEach.call(activeCityPath, function(path) {
+                path.removeAttribute('data-active');
+            });
+        }
+
+        if (activeButton) {
+            [].forEach.call(plotlineButtons, function(button) {
+                button.removeAttribute('data-active-button');
+            });
+
+        }
+
+        plotline.setAttribute('data-active-button', true);
+
+        cityPath.setAttribute('data-active', true);
+        cityPoint.setAttribute('data-active', true);
+        cityPlane.setAttribute('data-active', true);
+        newPlotline.setAttribute('data-active', true);
+    };
+
     [].forEach.call(plotlineButtons, function(plotlineButton) {
+
         plotlineButton.addEventListener('click', function() {
-            var plotlineToShow = this.dataset.plotlineShow;
-            var city = this.dataset.city;
-            var newPlotline = document.querySelector('[data-plotline="' + plotlineToShow + '"]');
-            var cityPath = document.querySelector('[data-city-path="' + city + '"]');
-            var cityPoint = document.querySelector('[data-city-point="' + city + '"]');
-            var cityPlane = document.querySelector('[data-city-plane="' + city + '"]');
-            activeCityPath = document.querySelectorAll('[data-active]');
-            console.log(plotlineToShow);
-            if (plotlineToShow == 4) {
-                document.querySelector('[data-city-plane="kinshasa"]').classList.add('revert');
-            } else {
-                document.querySelector('[data-city-plane="kinshasa"]').classList.remove('revert');
-            }
-
-            if (activeCityPath) {
-                [].forEach.call(activeCityPath, function(path) {
-                    path.removeAttribute('data-active');
-                });
-            }
-
-            cityPath.setAttribute('data-active', true);
-            cityPoint.setAttribute('data-active', true);
-            cityPlane.setAttribute('data-active', true);
-            newPlotline.setAttribute('data-active', true);
-
+            changePlotlines(this);
         });
+
+        plotlineButton.addEventListener('mouseover', function() {
+            this.click();
+            clearTimeout(timerPlotline);
+        });
+
     });
+
+    var startPlotlines = function() {
+
+        clearTimeout(timerPlotline);
+        var activePlotlineButton = document.querySelector('[data-active-button]').dataset.plotlineShow;
+        var nextPlotlineButton;
+        if (activePlotlineButton == 5) {
+            nextPlotlineButton = document.querySelector('[data-plotline-show="1"]');
+        } else {
+            nextPlotlineButton = document.querySelector('[data-plotline-show="' + (parseInt(activePlotlineButton, 10) + 1) + '"]');
+        }
+        timerPlotline = setTimeout(function() {
+            nextPlotlineButton.click();
+            startPlotlines();
+        }, 4000);
+    };
+
+    var triggerPlotline = function() {
+        if ((window.pageYOffset > document.getElementById('plotline').offsetTop) && !plotlineStarted) {
+            startPlotlines();
+            plotlineStarted = true;
+        } else if (window.pageYOffset > (document.getElementById('plotline').offsetTop + 600)) {
+            clearTimeout(timerPlotline);
+            plotlineStarted = false;
+        } else if (window.pageYOffset < document.getElementById('plotline').offsetTop) {
+            clearTimeout(timerPlotline);
+            plotlineStarted = false;
+        }
+    };
+
+    window.addEventListener('scroll', function() {
+        triggerPlotline();
+    });
+
+
 
     // map
     window.addEventListener("load", function() {

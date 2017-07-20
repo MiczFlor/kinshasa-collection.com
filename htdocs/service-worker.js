@@ -22,12 +22,7 @@ function precache() {
             './build/js/vimeo-player.js',
             './build/js/a11y-dialog.js',
             './build/js/main.js',
-            './build/media/map.svg',
-            './build/media/episode-1.jpg',
-            './build/media/episode-2.jpg',
-            './build/media/episode-3.jpg',
-            './build/media/episode-4.jpg',
-            './build/media/episode-5.jpg'
+            './build/media/map.svg'
         ]);
     });
 }
