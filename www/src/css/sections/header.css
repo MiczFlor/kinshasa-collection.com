@@ -116,6 +116,12 @@
     .social-vimeo {
         background-image: url(./build/media/vimeo.svg);
     }
+    .social-youtube {
+        background-image: url(./build/media/youtube.svg);
+    }
+    .social-instagram {
+        background-image: url(./build/media/instagram.svg);
+    }
 }
 
 .enhanced {

@@ -88,46 +88,28 @@
     }
 }
 
-.no-webp {
-    .episode-1:after {
-        background-image: url(./build/media/episode-1.jpg);
-    }
-    .episode-2:after {
-        background-image: url(./build/media/episode-2.jpg);
-    }
-    .episode-3:after {
-        background-image: url(./build/media/episode-3.jpg);
-    }
-    .episode-4:after {
-        background-image: url(./build/media/episode-4.jpg);
-    }
-    .episode-5:after {
-        background-image: url(./build/media/episode-5.jpg);
-    }
-    .episode-vimeo:after {
-        background-image: url(./build/media/episode-vimeo.jpg);
-    }
+.episode-1:after {
+    background-image: url(./build/media/episode-1.jpg);
 }
 
-.webp {
-    .episode-1:after {
-        background-image: url(./build/media/episode-1.webp);
-    }
-    .episode-2:after {
-        background-image: url(./build/media/episode-2.webp);
-    }
-    .episode-3:after {
-        background-image: url(./build/media/episode-3.webp);
-    }
-    .episode-4:after {
-        background-image: url(./build/media/episode-4.webp);
-    }
-    .episode-5:after {
-        background-image: url(./build/media/episode-5.webp);
-    }
-    .episode-vimeo:after {
-        background-image: url(./build/media/episode-vimeo.webp);
-    }
+.episode-2:after {
+    background-image: url(./build/media/episode-2.jpg);
+}
+
+.episode-3:after {
+    background-image: url(./build/media/episode-3.jpg);
+}
+
+.episode-4:after {
+    background-image: url(./build/media/episode-4.jpg);
+}
+
+.episode-5:after {
+    background-image: url(./build/media/episode-5.jpg);
+}
+
+.episode-youtube:after {
+    background-image: url(./build/media/youtube.jpg);
 }
 
 @media all and (min-width: 40em) {
