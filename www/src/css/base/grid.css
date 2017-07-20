@@ -35,4 +35,15 @@
         margin: 0 auto;
         padding: 0;
     }
+    .section-bottom .col-10 {
+        display: flex;
+        .col-4 {
+            width: 40%;
+            padding-right: 10px;
+        }
+        .col-6 {
+            width: 60%;
+            padding-left: 10px;
+        }
+    }
 }

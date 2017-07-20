@@ -59,7 +59,7 @@
     }
 }
 
-.no-webp .protagonists-list {
+.protagonists-list {
     li {
         &.protagonist-1:after {
             background-image: url(./build/media/protagonist-1.jpg);
@@ -106,55 +106,38 @@
         &.protagonist-15:after {
             background-image: url(./build/media/protagonist-15.jpg);
         }
-    }
-}
-
-.webp .protagonists-list {
-    li {
-        &.protagonist-1:after {
-            background-image: url(./build/media/protagonist-1.webp);
+        &.protagonist-16:after {
+            background-image: url(./build/media/protagonist-16.jpg);
         }
-        &.protagonist-2:after {
-            background-image: url(./build/media/protagonist-2.webp);
+        &.protagonist-17:after {
+            background-image: url(./build/media/protagonist-17.jpg);
         }
-        &.protagonist-3:after {
-            background-image: url(./build/media/protagonist-3.webp);
+        &.protagonist-18:after {
+            background-image: url(./build/media/protagonist-18.jpg);
         }
-        &.protagonist-4:after {
-            background-image: url(./build/media/protagonist-4.webp);
+        &.protagonist-19:after {
+            background-image: url(./build/media/protagonist-19.jpg);
         }
-        &.protagonist-5:after {
-            background-image: url(./build/media/protagonist-5.webp);
+        &.protagonist-20:after {
+            background-image: url(./build/media/protagonist-20.jpg);
         }
-        &.protagonist-6:after {
-            background-image: url(./build/media/protagonist-6.webp);
+        &.protagonist-21:after {
+            background-image: url(./build/media/protagonist-21.jpg);
         }
-        &.protagonist-7:after {
-            background-image: url(./build/media/protagonist-7.webp);
+        &.protagonist-22:after {
+            background-image: url(./build/media/protagonist-22.jpg);
         }
-        &.protagonist-8:after {
-            background-image: url(./build/media/protagonist-8.webp);
+        &.protagonist-23:after {
+            background-image: url(./build/media/protagonist-23.jpg);
         }
-        &.protagonist-9:after {
-            background-image: url(./build/media/protagonist-9.webp);
+        &.protagonist-24:after {
+            background-image: url(./build/media/protagonist-24.jpg);
         }
-        &.protagonist-10:after {
-            background-image: url(./build/media/protagonist-10.webp);
+        &.protagonist-25:after {
+            background-image: url(./build/media/protagonist-25.jpg);
         }
-        &.protagonist-11:after {
-            background-image: url(./build/media/protagonist-11.webp);
-        }
-        &.protagonist-12:after {
-            background-image: url(./build/media/protagonist-12.webp);
-        }
-        &.protagonist-13:after {
-            background-image: url(./build/media/protagonist-13.webp);
-        }
-        &.protagonist-14:after {
-            background-image: url(./build/media/protagonist-14.webp);
-        }
-        &.protagonist-15:after {
-            background-image: url(./build/media/protagonist-15.webp);
+        &.protagonist-26:after {
+            background-image: url(./build/media/protagonist-26.jpg);
         }
     }
 }
