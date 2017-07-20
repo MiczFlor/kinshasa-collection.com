@@ -1,0 +1,85 @@
+$fjalla: 'Fjalla One',
+sans-serif;
+$average: 'Average',
+serif;
+$roboto: 'Roboto Condensed',
+sans-serif;
+
+/* fjalla */
+
+.header-m {
+    font-family: $fjalla;
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.header-l {
+    font-family: $fjalla;
+    font-size: 44px;
+    line-height: 52px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.header-xl {
+    font-family: $fjalla;
+    font-size: 90px;
+    line-height: 90px;
+    font-weight: 400;
+    margin: 0;
+}
+
+
+/* average */
+
+.text-m {
+    font-family: $average;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.text-l {
+    font-family: $average;
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.text-xl {
+    font-family: $average;
+    font-size: 34px;
+    line-height: 44px;
+    font-weight: 400;
+    margin: 0;
+}
+
+@media all and (max-width: 40em) {
+    .header-xl {
+        font-size: 48px;
+        line-height: 60px;
+    }
+}
+
+
+/* roboto */
+
+.webnav {
+    font-family: $roboto;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.webnav-bold {
+    font-family: $roboto;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    margin: 0;
+}

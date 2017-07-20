@@ -1,0 +1,22 @@
+.section-bottom {
+    background: $grad-citrus;
+    color: $white;
+    padding: 30px 0;
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+    .webnav {
+        padding-top: 10px;
+    }
+    .col-5 {
+        p {
+            font-size: 15px;
+            line-height: 18px;
+        }
+    }
+}
+
+.section-press {
+    padding-top: 40px;
+}
