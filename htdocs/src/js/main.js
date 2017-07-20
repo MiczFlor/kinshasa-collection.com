@@ -106,7 +106,7 @@
     var videoElements = document.querySelectorAll('video');
 
     [].forEach.call(videoElements, function(video) {
-        video.setAttribute('src', './static/example-video.mp4');
+        video.setAttribute('src', 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/257/9/226285539/794991965.mp4?token=1500573865-0xce6fceb8aaee7e6093786665d85443b84067b8d1');
 
     });
 
