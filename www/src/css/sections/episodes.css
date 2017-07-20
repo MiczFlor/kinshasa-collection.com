@@ -91,27 +91,27 @@
 }
 
 .episode-1:after {
-    background-image: url(./build/media/episode-1.jpg);
+    background-image: url(./build/media/kinshasa-collection-episode-1.jpg);
 }
 
 .episode-2:after {
-    background-image: url(./build/media/episode-2.jpg);
+    background-image: url(./build/media/kinshasa-collection-episode-2.jpg);
 }
 
 .episode-3:after {
-    background-image: url(./build/media/episode-3.jpg);
+    background-image: url(./build/media/kinshasa-collection-episode-3.jpg);
 }
 
 .episode-4:after {
-    background-image: url(./build/media/episode-4.jpg);
+    background-image: url(./build/media/kinshasa-collection-episode-4.jpg);
 }
 
 .episode-5:after {
-    background-image: url(./build/media/episode-5.jpg);
+    background-image: url(./build/media/kinshasa-collection-episode-5.jpg);
 }
 
 .episode-youtube:after {
-    background-image: url(./build/media/youtube.jpg);
+    background-image: url(./build/media/kinshasa-collection-youtube-channel.jpg);
 }
 
 @media all and (min-width: 40em) {
