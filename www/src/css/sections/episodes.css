@@ -21,7 +21,7 @@
 }
 
 .episodes-list {
-    padding: 30px 16px;
+    padding: 30px 16px 70px 16px;
     display: flex;
     flex-wrap: wrap;
     h3:before {
@@ -32,6 +32,7 @@
         display: block;
         float: left;
         margin-right: 5px;
+        display: none;
     }
     li {
         display: block;
@@ -82,8 +83,9 @@
         transition: all 0.2s linear;
         &:hover,
         &:focus {
-            color: $pink;
-            border-color: $pink;
+            color: $white;
+            border-color: $white;
+            opacity: 0.8;
         }
     }
 }

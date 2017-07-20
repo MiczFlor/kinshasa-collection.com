@@ -1,7 +1,8 @@
 .page-texts {
     header {
-        background: $grad-sea;
+        background: $grad-purple;
         padding: 20px 0;
+        min-height: 200px;
         .col-12 {
             display: block;
         }
@@ -20,6 +21,10 @@
             color: $white;
             margin-left: 180px;
             line-height: 110px;
+            margin-right: 180px;
+        }
+        h2 {
+            margin-left: 180px;
             margin-right: 180px;
         }
     }
@@ -92,7 +97,8 @@
 }
 
 @media all and (max-width: 1000px) {
-    .page-texts header h1 {
+    .page-texts header h1,
+    .page-texts header h2 {
         margin-right: 0;
     }
     .page-texts section {
@@ -119,7 +125,8 @@
         float: none;
         margin: 0 auto;
     }
-    .page-texts header h1 {
+    .page-texts header h1,
+    .page-texts header h2 {
         margin: 0 auto;
         font-size: 40px;
         line-height: 44px;

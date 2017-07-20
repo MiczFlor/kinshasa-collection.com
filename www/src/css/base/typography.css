@@ -58,6 +58,13 @@ sans-serif;
     margin: 0;
 }
 
+@media all and (max-width: 40em) {
+    .header-xl {
+        font-size: 48px;
+        line-height: 60px;
+    }
+}
+
 
 /* roboto */
 

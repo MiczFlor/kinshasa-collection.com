@@ -14,6 +14,10 @@
         var increments = distance / (duration / 16);
         var stopAnimation;
 
+        if (anchor.id === 'top') {
+            endLocation = anchor.offsetTop;
+        }
+
         // Scroll the page by an increment, and check if it's time to stop
         var animateScroll = function() {
             window.scrollBy(0, increments);
@@ -171,17 +175,19 @@
 
     // map
     window.addEventListener("load", function() {
-        var svgObject = document.querySelector('[data-svg-object]');
 
-        if (svgObject.contentDocument.documentElement) {
-            svgObject.parentElement.replaceChild(svgObject.contentDocument.documentElement.cloneNode(true), svgObject);
-        }
+        if (viewportWidth > 960) {
+            var svgObject = document.querySelector('[data-svg-object]');
 
+            if (svgObject.contentDocument) {
+                svgObject.parentElement.replaceChild(svgObject.contentDocument.documentElement.cloneNode(true), svgObject);
+            }
 
-        if (activeCityPath.length === 0) {
-            document.querySelector('[data-city-path="berlin"]').setAttribute('data-active', true);
-            document.querySelector('[data-city-point="berlin"]').setAttribute('data-active', true);
-            document.querySelector('[data-city-plane="berlin"]').setAttribute('data-active', true);
+            if (activeCityPath.length === 0) {
+                document.querySelector('[data-city-path="berlin"]').setAttribute('data-active', true);
+                document.querySelector('[data-city-point="berlin"]').setAttribute('data-active', true);
+                document.querySelector('[data-city-plane="berlin"]').setAttribute('data-active', true);
+            }
         }
 
     });
@@ -206,6 +212,20 @@
             });
         });
     }
+
+    var backToTopButton = document.querySelector('.back-to-top');
+
+
+    var lastScrollTop = 0;
+    window.addEventListener("scroll", function() {
+        var st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st > lastScrollTop) {
+            backToTopButton.classList.remove('is-active');
+        } else {
+            backToTopButton.classList.add('is-active');
+        }
+        lastScrollTop = st;
+    }, false);
 
 
     console.log('JavaScript file with version v' + VERSION + ' loaded with no errors!1');

@@ -17,7 +17,7 @@
 }
 
 .texts-list {
-    padding: 30px 16px;
+    padding: 30px 16px 70px 16px;
     display: flex;
     flex-wrap: wrap;
     li {
@@ -27,7 +27,7 @@
         padding: 10px;
         min-height: 200px;
         position: relative;
-        background: $grad-sea;
+        background: $grad-purple;
         z-index: 1;
     }
     .btn {
@@ -38,8 +38,9 @@
         transition: all 0.2s linear;
         &:hover,
         &:focus {
-            color: $pink;
-            border-color: $pink;
+            color: $white;
+            border-color: $white;
+            opacity: 0.8;
         }
     }
 }
