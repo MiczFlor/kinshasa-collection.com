@@ -90,28 +90,46 @@
     }
 }
 
-.episode-1:after {
-    background-image: url(./static/kinshasa-collection-episode-1.jpg);
+.no-webp {
+    .episode-1:after {
+        background-image: url(./static/kinshasa-collection-episode-1.jpg);
+    }
+    .episode-2:after {
+        background-image: url(./static/kinshasa-collection-episode-2.jpg);
+    }
+    .episode-3:after {
+        background-image: url(./static/kinshasa-collection-episode-3.jpg);
+    }
+    .episode-4:after {
+        background-image: url(./static/kinshasa-collection-episode-4.jpg);
+    }
+    .episode-5:after {
+        background-image: url(./static/kinshasa-collection-episode-5.jpg);
+    }
+    .episode-youtube:after {
+        background-image: url(./static/kinshasa-collection-youtube-channel.jpg);
+    }
 }
 
-.episode-2:after {
-    background-image: url(./static/kinshasa-collection-episode-2.jpg);
-}
-
-.episode-3:after {
-    background-image: url(./static/kinshasa-collection-episode-3.jpg);
-}
-
-.episode-4:after {
-    background-image: url(./static/kinshasa-collection-episode-4.jpg);
-}
-
-.episode-5:after {
-    background-image: url(./static/kinshasa-collection-episode-5.jpg);
-}
-
-.episode-youtube:after {
-    background-image: url(./static/kinshasa-collection-youtube-channel.jpg);
+.webp {
+    .episode-1:after {
+        background-image: url(./static/kinshasa-collection-episode-1.webp);
+    }
+    .episode-2:after {
+        background-image: url(./static/kinshasa-collection-episode-2.webp);
+    }
+    .episode-3:after {
+        background-image: url(./static/kinshasa-collection-episode-3.webp);
+    }
+    .episode-4:after {
+        background-image: url(./static/kinshasa-collection-episode-4.webp);
+    }
+    .episode-5:after {
+        background-image: url(./static/kinshasa-collection-episode-5.webp);
+    }
+    .episode-youtube:after {
+        background-image: url(./static/kinshasa-collection-youtube-channel.webp);
+    }
 }
 
 @media all and (min-width: 40em) {

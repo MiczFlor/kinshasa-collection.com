@@ -68,7 +68,7 @@
     }
 }
 
-.protagonists-list {
+.no-webp .protagonists-list {
     li {
         &.protagonist-1:after {
             background-image: url(./static/wendy-bashi-protagonist.jpg);
@@ -147,6 +147,89 @@
         }
         &.protagonist-26:after {
             background-image: url(./static/zimu-zhang-protagonist.jpg);
+        }
+    }
+}
+
+.webp .protagonists-list {
+    li {
+        &.protagonist-1:after {
+            background-image: url(./static/wendy-bashi-protagonist.webp);
+        }
+        &.protagonist-2:after {
+            background-image: url(./static/pascal-capitolin-protagonist.webp);
+        }
+        &.protagonist-3:after {
+            background-image: url(./static/adrian-dausend-protagonist.webp);
+        }
+        &.protagonist-4:after {
+            background-image: url(./static/tracy-gbiayu-protagonist.webp);
+        }
+        &.protagonist-5:after {
+            background-image: url(./static/alex-gerbaulet-protagonist.webp);
+        }
+        &.protagonist-6:after {
+            background-image: url(./static/patrizia-herberger-protagonist.webp);
+        }
+        &.protagonist-7:after {
+            background-image: url(./static/tshoper-kabambi-protagonist.webp);
+        }
+        &.protagonist-8:after {
+            background-image: url(./static/patrick-ken-kalala-protagonist.webp);
+        }
+        &.protagonist-9:after {
+            background-image: url(./static/jana-keuchel-protagonist.webp);
+        }
+        &.protagonist-10:after {
+            background-image: url(./static/julia-kim-protagonist.webp);
+        }
+        &.protagonist-11:after {
+            background-image: url(./static/wilfried-luzele-lovalova-protagonist.webp);
+        }
+        &.protagonist-12:after {
+            background-image: url(./static/madhi-kwete-madikumu-protagonist.webp);
+        }
+        &.protagonist-13:after {
+            background-image: url(./static/daniel-mbezo-protagonist.webp);
+        }
+        &.protagonist-14:after {
+            background-image: url(./static/goitseone-montsho-protagonist.webp);
+        }
+        &.protagonist-15:after {
+            background-image: url(./static/anthony-muzuyi-golden-boy-protagonist.webp);
+        }
+        &.protagonist-16:after {
+            background-image: url(./static/cedrick-nzolo-demi-dieu-protagonist.webp);
+        }
+        &.protagonist-17:after {
+            background-image: url(./static/lydie-okosa-protagonist.webp);
+        }
+        &.protagonist-18:after {
+            background-image: url(./static/titi-saidi-protagonist.webp);
+        }
+        &.protagonist-19:after {
+            background-image: url(./static/beaute-sauvage-protagonist.webp);
+        }
+        &.protagonist-20:after {
+            background-image: url(./static/chris-shongo-protagonist.webp);
+        }
+        &.protagonist-21:after {
+            background-image: url(./static/djo-shongo-protagonist.webp);
+        }
+        &.protagonist-22:after {
+            background-image: url(./static/shaggy-pigeon-de-la-terre-protagonist.webp);
+        }
+        &.protagonist-23:after {
+            background-image: url(./static/irene-tshibola-protagonist.webp);
+        }
+        &.protagonist-24:after {
+            background-image: url(./static/dorothee-wenner-protagonist.webp);
+        }
+        &.protagonist-25:after {
+            background-image: url(./static/marly-yamba-protagonist.webp);
+        }
+        &.protagonist-26:after {
+            background-image: url(./static/zimu-zhang-protagonist.webp);
         }
     }
 }

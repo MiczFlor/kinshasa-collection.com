@@ -23,6 +23,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.7",
+    "gulp-webp": "^2.3.0",
     "postcss-extend": "^1.0.5",
     "postcss-nested": "^1.0.0",
     "postcss-partial-import": "^2.0.0",

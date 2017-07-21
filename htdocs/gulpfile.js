@@ -1,20 +1,21 @@
-var gulp = require('gulp');
-var sugarss = require('sugarss');
-var postcss = require('gulp-postcss');
-var rename = require('gulp-rename');
-var gutil = require('gulp-util');
-var autoprefixer = require('autoprefixer');
-var cssnext = require('cssnext');
-var precss = require('precss');
-var plumber = require('gulp-plumber');
-var browserSync = require('browser-sync');
-var reload = browserSync.reload;
-var cssnano = require('cssnano');
-var sourcemaps = require('gulp-sourcemaps');
-var imagemin = require('gulp-imagemin');
-var uglify = require('gulp-uglify');
-var pump = require('pump');
-var inlinesource = require('gulp-inline-source');
+const gulp = require('gulp');
+const sugarss = require('sugarss');
+const postcss = require('gulp-postcss');
+const rename = require('gulp-rename');
+const gutil = require('gulp-util');
+const autoprefixer = require('autoprefixer');
+const cssnext = require('cssnext');
+const precss = require('precss');
+const plumber = require('gulp-plumber');
+const browserSync = require('browser-sync');
+const reload = browserSync.reload;
+const cssnano = require('cssnano');
+const sourcemaps = require('gulp-sourcemaps');
+const imagemin = require('gulp-imagemin');
+const uglify = require('gulp-uglify');
+const pump = require('pump');
+const inlinesource = require('gulp-inline-source');
+const webp = require('gulp-webp');
 
 gulp.task('styles', function() {
     return gulp.src('src/css/styles.css')
@@ -63,9 +64,23 @@ gulp.task('browser-sync', function() {
 /* optimize images */
 gulp.task('images', function() {
     gulp.src('src/media/*')
-        .pipe(imagemin())
+        .pipe(imagemin([
+            imagemin.gifsicle({ interlaced: true }),
+            imagemin.jpegtran({ progressive: true }),
+            imagemin.optipng({ optimizationLevel: 10 })
+        ], {
+            verbose: true
+        }))
         .pipe(gulp.dest('static'))
 });
+
+/* generate webp images */
+gulp.task('webp', () =>
+    gulp.src('src/media/*')
+    .pipe(webp())
+    .pipe(gulp.dest('static'))
+);
+
 
 // Watch
 gulp.task('watch', function() {

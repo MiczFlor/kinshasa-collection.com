@@ -134,6 +134,15 @@
     }
 }
 
+.wf-inactive {
+    .section-header {
+        background: $black;
+    }
+    .section-header:before {
+        display: none;
+    }
+}
+
 .enhanced {
     body {
         overflow-x: hidden;
