@@ -85,7 +85,7 @@
     var videoIframeElement = document.querySelector('.dialog-content video');
 
     var vimeoOptions = {
-        id: 50467632
+        id: 226337671
     };
 
     var vimeoPlayer = new Vimeo.Player('vimeo-iframe', vimeoOptions);
@@ -122,7 +122,7 @@
     var videoElements = document.querySelectorAll('video');
 
     [].forEach.call(videoElements, function(video) {
-        video.setAttribute('src', 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/257/9/226285539/794991965.mp4?token=1500573865-0xce6fceb8aaee7e6093786665d85443b84067b8d1');
+        video.setAttribute('src', 'https://player.vimeo.com/external/226285539.hd.mp4?s=1a99a0274bd77c0d77bf67375bb5a1415f41530c&profile_id=175');
     });
 
     videoState.addEventListener('click', function() {

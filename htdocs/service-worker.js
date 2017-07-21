@@ -16,13 +16,7 @@ self.addEventListener('fetch', function(evt) {
 function precache() {
     return caches.open(CACHE).then(function(cache) {
         return cache.addAll([
-            './index.html',
-            './build/js/webfontloader.js',
-            './build/js/load.js',
-            './build/js/vimeo-player.js',
-            './build/js/a11y-dialog.js',
-            './build/js/main.js',
-            './build/media/map.svg'
+            './index.html'
         ]);
     });
 }
