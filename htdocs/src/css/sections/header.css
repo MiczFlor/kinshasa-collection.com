@@ -138,6 +138,9 @@
     body {
         overflow-x: hidden;
     }
+    .seciton-header {
+        background: $black;
+    }
     .section-header:before {
         content: "";
         position: absolute;
@@ -179,10 +182,10 @@
         [data-status="pause"] {
             background-image: url(./static/play.svg);
         }
-        [data-volume="off"] {
+        [data-volume="on"] {
             background-image: url(./static/volume-off.svg);
         }
-        [data-volume="on"] {
+        [data-volume="off"] {
             background-image: url(./static/volume-on.svg);
         }
     }
