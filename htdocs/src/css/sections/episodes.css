@@ -1,0 +1,145 @@
+.section-episodes {
+    background-color: $black;
+    color: $white;
+    a {
+        color: $white;
+        text-decoration: none;
+    }
+    .header-xl {
+        background-color: $red;
+        text-align: center;
+        color: $blue;
+        padding: 30px 0;
+        text-transform: uppercase;
+    }
+}
+
+.episode-date {
+    background: transparent url(./static/eye-icon.png) no-repeat left center;
+    background-size: 30px 30px;
+    padding-left: 40px;
+}
+
+.episodes-list {
+    padding: 30px 16px 70px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    h3:before {
+        content: "";
+        width: 37px;
+        height: 38px;
+        background: transparent url(./static/video-play.png) no-repeat 0 0;
+        display: block;
+        float: left;
+        margin-right: 5px;
+        display: none;
+    }
+    li {
+        display: block;
+        width: 100%;
+        margin: 10px;
+        padding: 10px;
+        min-height: 200px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background: rgba(127, 127, 127, 0.3);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%236a666f' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+            transition: all 300ms ease-in-out;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            z-index: -2;
+            transition: all 400ms ease-in-out;
+        }
+        &:hover:after {
+            transform: scale(1.1);
+        }
+        &:hover:before {
+            background: rgba(127, 127, 127, 0.1);
+        }
+    }
+    .btn {
+        display: inline-block;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        transition: all 0.2s linear;
+        &:hover,
+        &:focus {
+            color: $white;
+            border-color: $white;
+            opacity: 0.8;
+        }
+    }
+}
+
+.no-webp {
+    .episode-1:after {
+        background-image: url(./static/kinshasa-collection-episode-1.jpg);
+    }
+    .episode-2:after {
+        background-image: url(./static/kinshasa-collection-episode-2.jpg);
+    }
+    .episode-3:after {
+        background-image: url(./static/kinshasa-collection-episode-3.jpg);
+    }
+    .episode-4:after {
+        background-image: url(./static/kinshasa-collection-episode-4.jpg);
+    }
+    .episode-5:after {
+        background-image: url(./static/kinshasa-collection-episode-5.jpg);
+    }
+    .episode-youtube:after {
+        background-image: url(./static/kinshasa-collection-youtube-channel.jpg);
+    }
+}
+
+.webp {
+    .episode-1:after {
+        background-image: url(./static/kinshasa-collection-episode-1.webp);
+    }
+    .episode-2:after {
+        background-image: url(./static/kinshasa-collection-episode-2.webp);
+    }
+    .episode-3:after {
+        background-image: url(./static/kinshasa-collection-episode-3.webp);
+    }
+    .episode-4:after {
+        background-image: url(./static/kinshasa-collection-episode-4.webp);
+    }
+    .episode-5:after {
+        background-image: url(./static/kinshasa-collection-episode-5.webp);
+    }
+    .episode-youtube:after {
+        background-image: url(./static/kinshasa-collection-youtube-channel.webp);
+    }
+}
+
+@media all and (min-width: 40em) {
+    .episodes-list li {
+        width: calc(50% - 20px);
+    }
+}
+
+@media all and (min-width: 60em) {
+    .episodes-list li {
+        width: calc(33.333% - 20px);
+    }
+}

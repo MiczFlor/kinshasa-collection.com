@@ -1,0 +1,55 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+footer,
+header,
+nav,
+section {
+    display: block;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media all and (max-width: 40em) {
+    h1,
+    h2,
+    h3 {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
+    }
+}
+
+[hidden],
+.dialog[aria-hidden="true"] {
+    display: none;
+}
