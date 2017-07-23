@@ -1,4 +1,4 @@
-const VERSION = '0.1.17';
+const VERSION = '0.2.0';
 const CACHE = 'static' + VERSION;
 
 self.addEventListener('install', function(evt) {

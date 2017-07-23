@@ -2,7 +2,7 @@
 
     'use strict';
 
-    var VERSION = '0.1';
+    var VERSION = '0.2';
 
     // Function to animate the scroll
     var smoothScroll = function(anchor, duration) {
@@ -80,7 +80,7 @@
     var trailerDialogEl = document.getElementById('trailer-dialog');
     var mainEl = document.querySelector('header');
 
-    // Instantiate a new A11yDialog module
+    // trailer dialog
     var trailerDialog = new A11yDialog(trailerDialogEl, mainEl);
     var videoIframeElement = document.querySelector('.dialog-content video');
 
@@ -142,13 +142,13 @@
     videoVolume.addEventListener('click', function() {
         var volume = this.dataset.volume;
 
-        if (volume === 'on') {
-            this.dataset.volume = 'off';
-            this.textContent = 'Volume off';
-            videoElement.muted = false;
-        } else {
+        if (volume === 'off') {
             this.dataset.volume = 'on';
             this.textContent = 'Volume on';
+            videoElement.muted = false;
+        } else {
+            this.dataset.volume = 'off';
+            this.textContent = 'Volume off';
             videoElement.muted = true;
         }
     });
@@ -285,8 +285,9 @@
         });
     }
 
-    var backToTopButton = document.querySelector('.back-to-top');
 
+    // back to top button
+    var backToTopButton = document.querySelector('.back-to-top');
 
     var lastScrollTop = 0;
     window.addEventListener("scroll", function() {
@@ -300,7 +301,7 @@
     }, false);
 
 
-    console.log('JavaScript file with version v' + VERSION + ' loaded with no errors!1');
+    console.log('JavaScript file with version v' + VERSION + ' loaded with no errors.');
 
     window.onerror = function() {
         document.documentElement.className = '';
