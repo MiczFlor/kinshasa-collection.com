@@ -52,9 +52,10 @@
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    width: auto;
+    width: 100%;
     height: auto;
     z-index: -2;
+    object-fit: cover;
 }
 
 .header-main {
@@ -83,7 +84,7 @@
 
 @media all and (max-width: 60em) {
     .header-main {
-        padding-top: 100px;
+        padding-top: 60px;
     }
 }
 
@@ -209,14 +210,14 @@
         z-index: 100;
         right: 20px;
         top: 10px;
-        width: 60px;
+        width: 40px;
         height: 45px;
         transform: rotate(0deg);
         transition: .5s ease-in-out;
         span {
             display: block;
             position: absolute;
-            height: 6px;
+            height: 4px;
             width: 100%;
             background: $white;
             border-radius: 0;
@@ -234,10 +235,10 @@
         }
         span:nth-child(3),
         span:nth-child(4) {
-            top: 18px;
+            top: 12px;
         }
         span:nth-child(5) {
-            top: 36px;
+            top: 24px;
         }
     }
     .menu-open.size-small {
@@ -289,5 +290,38 @@
     .menu-open.size-small .main-nav ul {
         opacity: 1;
         z-index: 1;
+    }
+    .menu-open .main-nav button {
+        position: fixed;
+    }
+}
+
+@media all and (max-width: 60em) {
+    .enhanced .video-controls [data-status],
+    .enhanced .video-controls [data-volume] {
+        display: none;
+    }
+    .social {
+        float: none;
+        width: 180px;
+        margin: 0 auto;
+    }
+    .section-header:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: transparent url(./static/kc-background-still.jpg) no-repeat 0 0;
+        background-size: cover;
+        z-index: -2;
+    }
+    .logo-main {
+        width: auto;
+        height: 200px;
+        background-size: contain;
+        background-position: center center;
+        margin-bottom: 30px;
     }
 }

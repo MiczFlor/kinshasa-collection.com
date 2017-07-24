@@ -3,6 +3,7 @@
     'use strict';
 
     var VERSION = '0.2';
+    var viewportWidth = window.innerWidth;
 
     // Function to animate the scroll
     var smoothScroll = function(anchor, duration) {
@@ -81,39 +82,48 @@
     var mainEl = document.querySelector('header');
 
     // trailer dialog
-    var trailerDialog = new A11yDialog(trailerDialogEl, mainEl);
     var videoIframeElement = document.querySelector('.dialog-content video');
 
-    var vimeoOptions = {
-        id: 226337671
-    };
-
-    var vimeoPlayer = new Vimeo.Player('vimeo-iframe', vimeoOptions);
+    if (trailerDialogEl) {
+        var trailerDialog = new A11yDialog(trailerDialogEl, mainEl);
 
 
-    trailerDialog.on('show', function(dialogEl, triggerEl) {
-        vimeoPlayer.play();
-    });
+        var vimeoOptions = {
+            id: 226337671
+        };
 
-    trailerDialog.on('hide', function(dialogEl, triggerEl) {
-        vimeoPlayer.pause();
-    });
+        var vimeoPlayer = new Vimeo.Player('vimeo-iframe', vimeoOptions);
+
+
+        trailerDialog.on('show', function(dialogEl, triggerEl) {
+            vimeoPlayer.play();
+        });
+
+        trailerDialog.on('hide', function(dialogEl, triggerEl) {
+            vimeoPlayer.pause();
+        });
+    }
+
 
     // protagonists
     var protagonistsElements = document.querySelectorAll('.protagonists-list li');
 
-    [].forEach.call(protagonistsElements, function(protagonistsElement) {
-        protagonistsElement.addEventListener('click', function() {
-            [].forEach.call(protagonistsElements, function(protagonistsElement) {
-                protagonistsElement.classList.remove('hover');
+    if (protagonistsElements) {
+        [].forEach.call(protagonistsElements, function(protagonistsElement) {
+            protagonistsElement.addEventListener('click', function() {
+                [].forEach.call(protagonistsElements, function(protagonistsElement) {
+                    protagonistsElement.classList.remove('hover');
+                });
+                this.classList.add('hover');
             });
-            this.classList.add('hover');
-        });
 
-        protagonistsElement.addEventListener('mouseover', function() {
-            this.click();
+            protagonistsElement.addEventListener('mouseover', function() {
+                this.click();
+            });
         });
-    });
+    }
+
+
 
     // video controls
     var videoState = document.querySelector('[data-status]');
@@ -121,37 +131,41 @@
     var videoElement = document.querySelector('video');
     var videoElements = document.querySelectorAll('video');
 
-    [].forEach.call(videoElements, function(video) {
-        video.setAttribute('src', 'https://player.vimeo.com/external/226285539.hd.mp4?s=1a99a0274bd77c0d77bf67375bb5a1415f41530c&profile_id=175');
-    });
+    if (videoState && viewportWidth > 960) {
+        [].forEach.call(videoElements, function(video) {
+            video.setAttribute('src', 'https://player.vimeo.com/external/226285539.hd.mp4?s=1a99a0274bd77c0d77bf67375bb5a1415f41530c&profile_id=175');
+        });
 
-    videoState.addEventListener('click', function() {
-        var currentState = this.dataset.status;
+        videoState.addEventListener('click', function() {
+            var currentState = this.dataset.status;
 
-        if (currentState === 'play') {
-            this.dataset.status = 'pause';
-            this.textContent = 'Play video';
-            videoElement.pause();
-        } else {
-            this.dataset.status = 'play';
-            this.textContent = 'Stop video';
-            videoElement.play();
-        }
-    });
+            if (currentState === 'play') {
+                this.dataset.status = 'pause';
+                this.textContent = 'Play video';
+                videoElement.pause();
+            } else {
+                this.dataset.status = 'play';
+                this.textContent = 'Stop video';
+                videoElement.play();
+            }
+        });
 
-    videoVolume.addEventListener('click', function() {
-        var volume = this.dataset.volume;
+        videoVolume.addEventListener('click', function() {
+            var volume = this.dataset.volume;
 
-        if (volume === 'off') {
-            this.dataset.volume = 'on';
-            this.textContent = 'Volume on';
-            videoElement.muted = false;
-        } else {
-            this.dataset.volume = 'off';
-            this.textContent = 'Volume off';
-            videoElement.muted = true;
-        }
-    });
+            if (volume === 'off') {
+                this.dataset.volume = 'on';
+                this.textContent = 'Volume on';
+                videoElement.muted = false;
+            } else {
+                this.dataset.volume = 'off';
+                this.textContent = 'Volume off';
+                videoElement.muted = true;
+            }
+        });
+    }
+
+
 
     // plotline
     var timerPlotline;
@@ -160,88 +174,92 @@
     var plotlineButtons = document.querySelectorAll('[data-plotline-show]');
     var activeCityPath = document.querySelectorAll('path[data-active]');
 
-    var changePlotlines = function(plotline) {
-        var plotlineToShow = plotline.dataset.plotlineShow;
-        var city = plotline.dataset.city;
-        var newPlotline = document.querySelector('[data-plotline="' + plotlineToShow + '"]');
-        var cityPath = document.querySelector('[data-city-path="' + city + '"]');
-        var cityPoint = document.querySelector('[data-city-point="' + city + '"]');
-        var cityPlane = document.querySelector('[data-city-plane="' + city + '"]');
-        var activeButton = document.querySelector('[data-active-button]') || false;
-        activeCityPath = document.querySelectorAll('[data-active]');
+    if (plotlineButtons && plotlineButtons.length > 0) {
+        var changePlotlines = function(plotline) {
+            var plotlineToShow = plotline.dataset.plotlineShow;
+            var city = plotline.dataset.city;
+            var newPlotline = document.querySelector('[data-plotline="' + plotlineToShow + '"]');
+            var cityPath = document.querySelector('[data-city-path="' + city + '"]');
+            var cityPoint = document.querySelector('[data-city-point="' + city + '"]');
+            var cityPlane = document.querySelector('[data-city-plane="' + city + '"]');
+            var activeButton = document.querySelector('[data-active-button]') || false;
+            activeCityPath = document.querySelectorAll('[data-active]');
 
-        if (plotlineToShow == 4) {
-            document.querySelector('[data-city-plane="kinshasa"]').classList.add('revert');
-        } else {
-            document.querySelector('[data-city-plane="kinshasa"]').classList.remove('revert');
-        }
+            if (plotlineToShow == 4) {
+                document.querySelector('[data-city-plane="kinshasa"]').classList.add('revert');
+            } else {
+                document.querySelector('[data-city-plane="kinshasa"]').classList.remove('revert');
+            }
 
-        if (activeCityPath) {
-            [].forEach.call(activeCityPath, function(path) {
-                path.removeAttribute('data-active');
+            if (activeCityPath) {
+                [].forEach.call(activeCityPath, function(path) {
+                    path.removeAttribute('data-active');
+                });
+            }
+
+            if (activeButton) {
+                [].forEach.call(plotlineButtons, function(button) {
+                    button.removeAttribute('data-active-button');
+                });
+
+            }
+
+            plotline.setAttribute('data-active-button', true);
+
+            cityPath.setAttribute('data-active', true);
+            cityPoint.setAttribute('data-active', true);
+            cityPlane.setAttribute('data-active', true);
+            newPlotline.setAttribute('data-active', true);
+        };
+
+        [].forEach.call(plotlineButtons, function(plotlineButton) {
+
+            plotlineButton.addEventListener('click', function() {
+                changePlotlines(this);
             });
-        }
 
-        if (activeButton) {
-            [].forEach.call(plotlineButtons, function(button) {
-                button.removeAttribute('data-active-button');
+            plotlineButton.addEventListener('mouseover', function() {
+                this.click();
+                clearTimeout(timerPlotline);
             });
 
-        }
-
-        plotline.setAttribute('data-active-button', true);
-
-        cityPath.setAttribute('data-active', true);
-        cityPoint.setAttribute('data-active', true);
-        cityPlane.setAttribute('data-active', true);
-        newPlotline.setAttribute('data-active', true);
-    };
-
-    [].forEach.call(plotlineButtons, function(plotlineButton) {
-
-        plotlineButton.addEventListener('click', function() {
-            changePlotlines(this);
         });
 
-        plotlineButton.addEventListener('mouseover', function() {
-            this.click();
+        var startPlotlines = function() {
+
             clearTimeout(timerPlotline);
+            var activePlotlineButton = document.querySelector('[data-active-button]').dataset.plotlineShow;
+            var nextPlotlineButton;
+            if (activePlotlineButton == 5) {
+                nextPlotlineButton = document.querySelector('[data-plotline-show="1"]');
+            } else {
+                nextPlotlineButton = document.querySelector('[data-plotline-show="' + (parseInt(activePlotlineButton, 10) + 1) + '"]');
+            }
+            timerPlotline = setTimeout(function() {
+                nextPlotlineButton.click();
+                startPlotlines();
+            }, 4000);
+        };
+
+        var triggerPlotline = function() {
+            if ((window.pageYOffset > document.getElementById('plotline').offsetTop) && !plotlineStarted) {
+                startPlotlines();
+                plotlineStarted = true;
+            } else if (window.pageYOffset > (document.getElementById('plotline').offsetTop + 600)) {
+                clearTimeout(timerPlotline);
+                plotlineStarted = false;
+            } else if (window.pageYOffset < document.getElementById('plotline').offsetTop) {
+                clearTimeout(timerPlotline);
+                plotlineStarted = false;
+            }
+        };
+
+        window.addEventListener('scroll', function() {
+            triggerPlotline();
         });
+    }
 
-    });
 
-    var startPlotlines = function() {
-
-        clearTimeout(timerPlotline);
-        var activePlotlineButton = document.querySelector('[data-active-button]').dataset.plotlineShow;
-        var nextPlotlineButton;
-        if (activePlotlineButton == 5) {
-            nextPlotlineButton = document.querySelector('[data-plotline-show="1"]');
-        } else {
-            nextPlotlineButton = document.querySelector('[data-plotline-show="' + (parseInt(activePlotlineButton, 10) + 1) + '"]');
-        }
-        timerPlotline = setTimeout(function() {
-            nextPlotlineButton.click();
-            startPlotlines();
-        }, 4000);
-    };
-
-    var triggerPlotline = function() {
-        if ((window.pageYOffset > document.getElementById('plotline').offsetTop) && !plotlineStarted) {
-            startPlotlines();
-            plotlineStarted = true;
-        } else if (window.pageYOffset > (document.getElementById('plotline').offsetTop + 600)) {
-            clearTimeout(timerPlotline);
-            plotlineStarted = false;
-        } else if (window.pageYOffset < document.getElementById('plotline').offsetTop) {
-            clearTimeout(timerPlotline);
-            plotlineStarted = false;
-        }
-    };
-
-    window.addEventListener('scroll', function() {
-        triggerPlotline();
-    });
 
 
 
@@ -251,11 +269,11 @@
         if (viewportWidth > 960) {
             var svgObject = document.querySelector('[data-svg-object]');
 
-            if (svgObject.contentDocument) {
+            if (svgObject && svgObject.contentDocument) {
                 svgObject.parentElement.replaceChild(svgObject.contentDocument.documentElement.cloneNode(true), svgObject);
             }
 
-            if (activeCityPath.length === 0) {
+            if (svgObject && activeCityPath.length === 0) {
                 document.querySelector('[data-city-path="berlin"]').setAttribute('data-active', true);
                 document.querySelector('[data-city-point="berlin"]').setAttribute('data-active', true);
                 document.querySelector('[data-city-plane="berlin"]').setAttribute('data-active', true);
@@ -265,40 +283,70 @@
     });
 
     // mobile nav
-    var viewportWidth = window.innerWidth;
 
     if (viewportWidth < 960) {
+
         var menuTrigger = document.querySelector(['[data-trigger="menu"]']);
         var menuLinks = document.querySelectorAll('[data-smooth-scroll]');
 
-        menuTrigger.removeAttribute('hidden');
-        document.body.classList.add('size-small');
+        if (menuTrigger) {
+            menuTrigger.removeAttribute('hidden');
+            document.body.classList.add('size-small');
 
-        menuTrigger.addEventListener('click', function() {
-            document.body.classList.toggle('menu-open');
-        });
-
-        [].forEach.call(menuLinks, function(menuLink) {
-            menuLink.addEventListener('click', function() {
-                document.body.classList.remove('menu-open');
+            menuTrigger.addEventListener('click', function() {
+                document.body.classList.toggle('menu-open');
             });
-        });
+
+            [].forEach.call(menuLinks, function(menuLink) {
+                menuLink.addEventListener('click', function() {
+                    document.body.classList.remove('menu-open');
+                });
+            });
+        }
+
+
     }
 
 
     // back to top button
     var backToTopButton = document.querySelector('.back-to-top');
 
-    var lastScrollTop = 0;
-    window.addEventListener("scroll", function() {
-        var st = window.pageYOffset || document.documentElement.scrollTop;
-        if (st > lastScrollTop) {
-            backToTopButton.classList.remove('is-active');
-        } else {
-            backToTopButton.classList.add('is-active');
-        }
-        lastScrollTop = st;
-    }, false);
+    if (backToTopButton) {
+        var lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop) {
+                backToTopButton.classList.remove('is-active');
+            } else {
+                backToTopButton.classList.add('is-active');
+            }
+            lastScrollTop = st;
+        }, false);
+    }
+
+
+
+    // language switch
+    var languageSwitcher = document.querySelector('[data-switcher="language"]');
+
+    if (languageSwitcher) {
+        languageSwitcher.addEventListener('change', function() {
+            location.href = document.location.origin + '/' + this.value;
+        });
+    }
+
+    // history back link
+    var historyBackLinks = document.querySelectorAll('[data-history-back]');
+
+    if (historyBackLinks) {
+        [].forEach.call(historyBackLinks, function(historyBackLink) {
+            historyBackLink.addEventListener('click', function(ev) {
+                window.history.back();
+                ev.preventDefault();
+            });
+        });
+    }
+
 
 
     console.log('JavaScript file with version v' + VERSION + ' loaded with no errors.');
@@ -306,5 +354,20 @@
     window.onerror = function() {
         document.documentElement.className = '';
     };
+
+    // nasty check for old iOS Safari to disable enhancements
+    function iOSversion() {
+        if (/iP(hone|od|ad)/.test(navigator.platform)) {
+            // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
+            var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+            return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+        }
+    }
+
+    ver = iOSversion();
+
+    if (ver[0] <= 8) {
+        document.documentElement.className = '';
+    }
 
 })();

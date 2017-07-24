@@ -94,10 +94,10 @@
                     <a data-smooth-scroll href="#press">Press</a>
                 </li>
                 <li>
-                    <select>
-                        <option value="/english">English</option>
-                        <option disabled value="/francais">Français</option>
-                        <option disabled value="/deutsch">Deutsch</option>
+                    <select data-switcher="language">
+                        <option value="index.html">English</option>
+                        <option value="index-fr.html">Français</option>
+                        <option value="index-de.html">Deutsch</option>
                     </select>
                 </li>
             </ul>
@@ -123,7 +123,10 @@
                 <div role="document">
                     <div id="vimeo-iframe"></div>
                 </div>
+                <button type="button" class="dialog-close" data-a11y-dialog-hide aria-label="Close this dialog window">&times;</button>
             </div>
+
+
         </div>
 
         <div class="video-controls col-12">
@@ -214,28 +217,61 @@
             <h2 class="header-xl">Watch episodes</h2>
             <ul class="col-12 episodes-list">
                 <li class="episode-1">
-                    <h3 class="header-m">#1 The Pitch <br>coming soon</h3>
+                    <h3 class="header-m">Episode #1 The Pitch <br>coming soon</h3>
                     <!-- <a class="text-l btn" href="#">Watch</a> -->
                 </li>
                 <li class="episode-2">
-                    <h3 class="header-m">#2 The Venture <br>coming soon</h3>
+                    <h3 class="header-m">Episode #2 The Venture <br>coming soon</h3>
                     <!-- <a class="text-l btn" href="#">Watch</a> -->
                 </li>
                 <li class="episode-3">
-                    <h3 class="header-m">#3 The Investment <br>coming soon</h3>
+                    <h3 class="header-m">Episode #3 The Investment <br>coming soon</h3>
                     <!-- <a class="text-l btn" href="#">Watch</a> -->
                 </li>
                 <li class="episode-4">
-                    <h3 class="header-m">#4 The Gamble <br>coming soon</h3>
+                    <h3 class="header-m">Episode #4 The Gamble <br>coming soon</h3>
                     <!-- <a class="text-l btn" href="#">Watch</a> -->
                 </li>
                 <li class="episode-5">
-                    <h3 class="header-m">#5 The Launch <br>coming soon</h3>
+                    <h3 class="header-m">Episode #5 The Launch <br>coming soon</h3>
                     <!-- <a class="text-l btn" href="#">Watch</a> -->
                 </li>
                 <li class="episode-youtube">
                     <h3 class="header-m">Our YouTube channel</h3>
                     <a class="text-l btn" href="https://www.youtube.com/channel/UCBOvTXEqlPmt7JEp5-JFvgg" target="_blank">Watch</a>
+                </li>
+            </ul>
+            <h2 class="header-l header-interventions">Interventions</h2>
+            <ul class="col-12 episodes-list episodes-list-interventions">
+                <li class="intervention-1">
+                    <img src="./static/kinshasa-collection-intervention-1.jpg" alt="">
+                    <h3 class="text-m">“Mankin” by Tshoper Kabambi</h3>
+                    <p class="webnav">DR Congo, 2017 coming soon...</p>
+                </li>
+                <li class="intervention-2">
+                    <img src="./static/kinshasa-collection-intervention-2.jpg" alt="">
+                    <h3 class="text-m">“Tosala” by Patrick Ken Kalala</h3>
+                    <p class="webnav">DR Congo, 2017 coming soon...</p>
+                </li>
+                <li class="intervention-3">
+                    <img src="./static/kinshasa-collection-intervention-3.jpg" alt="">
+                    <h3 class="text-m">“River Sand” by Yu Xeibin</h3>
+                    <p class="webnav">China, 2017 coming soon...</p>
+                </li>
+                <li class="intervention-4">
+                    <img src="./static/kinshasa-collection-intervention-4.jpg" alt="">
+                    <h3 class="text-m">“Letter from Xiaobei” by Zimu Zhang</h3>
+                    <p class="webnav">China, 2017 coming soon...</p>
+                </li>
+                <li class="intervention-5">
+                    <img src="./static/kinshasa-collection-intervention-5.jpg" alt="">
+                    <h3 class="text-m">“Molato” by Kadhaffi Mbuyamba</h3>
+                    <p class="webnav">DR Congo, 2017 coming soon...</p>
+                </li>
+                <li class="intervention-6">
+                    <img src="./static/kinshasa-collection-intervention-6.jpg" alt="">
+                    <h3 class="text-m">“Théatre Urbain” by Nelson Makengo</h3>
+                    <p class="webnav">DR Congo, 2017 coming soon...</p>
                 </li>
             </ul>
         </section>
@@ -630,10 +666,10 @@
 
                 <ul>
                     <li>
-                        <a href="#"><img src="./static/pong.png" alt="pong film GmbH"></a>
+                        <a href="http://www.pong-berlin.de/en" target="_blank"><img src="./static/pong.png" alt="pong film GmbH"></a>
                     </li>
                     <li>
-                        <a href="#"><img src="./static/gi.png" alt="Goethe-Institut"></a>
+                        <a href="https://www.goethe.de/en/index.html" target="_blank"><img src="./static/gi.png" alt="Goethe-Institut"></a>
                     </li>
                 </ul>
 
@@ -641,7 +677,7 @@
 
                 <ul>
                     <li>
-                        <a href="#"><img src="./static/ksb.png" alt="Kulturstiftung des Bundes"></a>
+                        <a href="http://www.kulturstiftung-des-bundes.de/cms/en/index.html" target="_blank"><img src="./static/ksb.png" alt="Kulturstiftung des Bundes"></a>
                     </li>
                 </ul>
 
@@ -649,10 +685,10 @@
 
                 <ul>
                     <li>
-                        <a href="#"><img src="./static/mbb.png" alt="Medienboard"></a>
+                        <a href="https://www.medienboard.de/en/" target="_blank"><img src="./static/mbb.png" alt="Medienboard"></a>
                     </li>
                     <li>
-                        <a href="#"><img src="./static/hkw.png" alt="HKW"></a>
+                        <a href="https://www.hkw.de/en/index.php" target="_blank"><img src="./static/hkw.png" alt="HKW"></a>
                     </li>
                 </ul>
 

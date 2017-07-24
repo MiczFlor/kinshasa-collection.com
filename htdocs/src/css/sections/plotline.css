@@ -1,5 +1,6 @@
 .section-plotline {
     padding: 0 0 70px 0;
+    background: $grad-sea;
     .header-xl {
         background-color: $red;
         text-align: center;

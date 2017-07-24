@@ -90,6 +90,24 @@
     }
 }
 
+.header-interventions {
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.episodes-list-interventions {
+    li {
+        padding: 0;
+    }
+    li:before {
+        display: none;
+    }
+    .text-m {
+        padding-bottom: 4px;
+    }
+}
+
 .no-webp {
     .episode-1:after {
         background-image: url(./static/kinshasa-collection-episode-1.jpg);
