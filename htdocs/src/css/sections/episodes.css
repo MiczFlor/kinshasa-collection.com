@@ -161,3 +161,15 @@
         width: calc(33.333% - 20px);
     }
 }
+
+@media all and (max-width: 40em) {
+    .episodes-list-interventions {
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+        li {
+            text-align: center;
+        }
+    }
+}

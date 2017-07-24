@@ -355,19 +355,4 @@
         document.documentElement.className = '';
     };
 
-    // nasty check for old iOS Safari to disable enhancements
-    function iOSversion() {
-        if (/iP(hone|od|ad)/.test(navigator.platform)) {
-            // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
-            var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
-            return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
-        }
-    }
-
-    ver = iOSversion();
-
-    if (ver[0] <= 8) {
-        document.documentElement.className = '';
-    }
-
 })();
