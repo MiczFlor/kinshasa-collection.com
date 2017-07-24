@@ -811,7 +811,7 @@
 
                                     var ver = iOSversion();
 
-                                    if (ver[0] <= 8) {
+                                    if (ver[0] && ver[0] <= 8) {
                                         document.documentElement.className = '';
                                     } else {
                                         document.documentElement.classList.add('enhanced');
