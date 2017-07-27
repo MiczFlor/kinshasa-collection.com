@@ -60,6 +60,7 @@
     </main>
 
     <script src="../../vendor/kingcollection/js/load.js"></script>
+    <script src="../../vendor/kingcollection/js/load.js"></script>
     <script>
         WebFontConfig = {
             google: {
@@ -68,10 +69,9 @@
         };
         loadjs('../../vendor/kingcollection/js/webfontloader.js');
 
-
         // cut the mustard
         if ('visibilityState' in document) {
-            loadjs(['./vendor/kingcollection/js/vimeo-player.js', './vendor/kingcollection/js/a11y-dialog.js', './vendor/kingcollection/js/main.js'], {
+            loadjs(['../../vendor/kingcollection/js/main.js'], {
                 success: function() {
                     document.documentElement.classList.add('enhanced');
                     console.log('Hey, you are using an modern browser, let\'s enhance your experience');

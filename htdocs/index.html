@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kinshasa Collection | web series and fashion brand</title>
 
@@ -109,7 +109,7 @@
             <h1 class="logo-main">Kinshasa Collection</h1>
 
             <div class="btn-group">
-                <a class="btn" data-a11y-dialog-show="trailer-dialog" href="#trailer" title="Watch Trailer">Watch Trailer</a>
+                <a class="btn" data-a11y-dialog-show="trailer-dialog" href="https://vimeo.com/226337671" title="Watch Trailer">Watch Trailer</a>
                 <a class="btn" href="#episodes" data-smooth-scroll>Watch Episodes 1-5 </a>
             </div>
         </div>
@@ -826,15 +826,6 @@
                                     document.documentElement.classList.remove('enhanced');
                                 },
                                 async: false
-                            });
-                        }
-
-                        if ('serviceWorker111' in navigator) {
-                            navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
-                                // registration worked
-                            }).catch(function(error) {
-                                // registration failed
-                                console.log('Registration failed with ' + error);
                             });
                         }
                     </script>
