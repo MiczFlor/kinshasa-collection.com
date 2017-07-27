@@ -83,7 +83,7 @@
                 opacity: 1;
             }
             path[data-city-plane="kinshasa"].revert {
-                transform: translate(129px, 2px) rotate(84deg);
+                transform: translate(350px, 40px) rotate(84deg);
                 transform-origin: center center;
             }
             div {
