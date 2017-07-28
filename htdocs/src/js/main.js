@@ -79,13 +79,20 @@
     });
 
     var trailerDialogEl = document.getElementById('trailer-dialog');
+    var trailerDialogButton = document.querySelector('[data-a11y-dialog-show]');
     var mainEl = document.querySelector('header');
+
+    trailerDialogButton.addEventListener('click', function(e) {
+        e.preventDefault();
+    });
 
     // trailer dialog
     var videoIframeElement = document.querySelector('.dialog-content video');
+    var videoElement = document.querySelector('video');
 
     if (trailerDialogEl) {
         var trailerDialog = new A11yDialog(trailerDialogEl, mainEl);
+
 
 
         var vimeoOptions = {
@@ -97,10 +104,12 @@
 
         trailerDialog.on('show', function(dialogEl, triggerEl) {
             vimeoPlayer.play();
+            videoElement.pause();
         });
 
         trailerDialog.on('hide', function(dialogEl, triggerEl) {
             vimeoPlayer.pause();
+            videoElement.play();
         });
     }
 
@@ -128,7 +137,6 @@
     // video controls
     var videoState = document.querySelector('[data-status]');
     var videoVolume = document.querySelector('[data-volume]');
-    var videoElement = document.querySelector('video');
     var videoElements = document.querySelectorAll('video');
 
     if (videoState && viewportWidth > 960) {
