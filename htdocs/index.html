@@ -180,7 +180,7 @@
                     <p class="webnav episode-date">Episode airs August 11, 2017</p>
                 </div>
 
-                <div data-plotline="3">
+                <div data-plotline="4">
                     <h3 class="webnav-bold">Episode #3 - The Investment</h3>
                     <p class="webnav">Upon their arrival at the African quarter in Guangzhou, the so-called “Chocolate City”, the film team is confronted with the fact that the Congolese partners don’t want to be accompanied on-site during their purchases. They argue that
                         the presence of a “white” crew would cause complications and drive up prices. The shopping list is endless—but how and where to find jeans, shirts, and track suits in the jungle-like gigantic textile central markets? And how can
@@ -188,7 +188,7 @@
                     <p class="webnav episode-date">Episode airs August 25, 2017</p>
                 </div>
 
-                <div data-plotline="4">
+                <div data-plotline="5">
                     <h3 class="webnav-bold">Episode #4 - The Gamble</h3>
                     <p class="webnav">Back in Kinshasa, the team prepares for filming with Congolese designers; models are cast, new locations inspected. After all, the apparel that was brought back is to be combined and presented in new “Kinshasa Style” looks and outfits.
                         A call from the Berlin agency unexpectedly disrupts preparations: the film team has been disqualified as their project proposal is seen as an advertisement for fashion pirating. Under pressure, the people involved discuss a possible
@@ -196,7 +196,7 @@
                     <p class="webnav episode-date">Episode airs September 8, 2017</p>
                 </div>
 
-                <div data-plotline="5">
+                <div data-plotline="6">
                     <h3 class="webnav-bold">Episode #5 - The Launch</h3>
                     <p class="webnav">The clothes and accessories from the “Kinshasa Collection” are shipped to Berlin. The highlight is being prepared: a big fashion show with apparel from the “Kinshasa Collection” and Congolese models at Berlin’s Haus der Kulturen der
                         Welt, which also serves as the last episode of the film.</p>
@@ -206,9 +206,9 @@
                 <ul class="plotline-episodes-list">
                     <li><button data-active-button data-plotline-show="1" data-city="berlin" class="header-m">Episode #1</button></li>
                     <li><button data-plotline-show="2" data-city="kinshasa" class="header-m">Episode #2</button></li>
-                    <li><button data-plotline-show="3" data-city="guangzhou" class="header-m">Episode #3</button></li>
-                    <li><button data-plotline-show="4" data-city="kinshasa" class="header-m">Episode #4</button></li>
-                    <li><button data-plotline-show="5" data-city="berlin" class="header-m">Episode #5</button></li>
+                    <li><button data-plotline-show="4" data-city="guangzhou" class="header-m">Episode #3</button></li>
+                    <li><button data-plotline-show="5" data-city="kinshasa" class="header-m">Episode #4</button></li>
+                    <li><button data-plotline-show="6" data-city="berlin" class="header-m">Episode #5</button></li>
                 </ul>
             </div>
         </section>
@@ -828,6 +828,14 @@
                                 async: false
                             });
                         }
+
+                        if ('serviceWorker' in navigator) {
+                            navigator.serviceWorker.register('./service-worker.js', {
+                                scope: './'
+                            }).then(function(registration) {
+
+                            }).catch(function(error) {});
+                        };
                     </script>
 </body>
 

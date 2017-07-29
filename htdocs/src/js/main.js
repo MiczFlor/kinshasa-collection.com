@@ -2,7 +2,7 @@
 
     'use strict';
 
-    var VERSION = '0.2';
+    var VERSION = '0.2.1';
     var viewportWidth = window.innerWidth;
 
     // Function to animate the scroll
@@ -189,15 +189,9 @@
             var newPlotline = document.querySelector('[data-plotline="' + plotlineToShow + '"]');
             var cityPath = document.querySelector('[data-city-path="' + city + '"]');
             var cityPoint = document.querySelector('[data-city-point="' + city + '"]');
-            var cityPlane = document.querySelector('[data-city-plane="' + city + '"]');
+            var cityPlane = document.querySelector('[data-city-plane="' + city + plotlineToShow + '"]');
             var activeButton = document.querySelector('[data-active-button]') || false;
             activeCityPath = document.querySelectorAll('[data-active]');
-
-            if (plotlineToShow == 4) {
-                document.querySelector('[data-city-plane="kinshasa"]').classList.add('revert');
-            } else {
-                document.querySelector('[data-city-plane="kinshasa"]').classList.remove('revert');
-            }
 
             if (activeCityPath) {
                 [].forEach.call(activeCityPath, function(path) {
@@ -213,7 +207,6 @@
             }
 
             plotline.setAttribute('data-active-button', true);
-
             cityPath.setAttribute('data-active', true);
             cityPoint.setAttribute('data-active', true);
             cityPlane.setAttribute('data-active', true);
@@ -238,8 +231,10 @@
             clearTimeout(timerPlotline);
             var activePlotlineButton = document.querySelector('[data-active-button]').dataset.plotlineShow;
             var nextPlotlineButton;
-            if (activePlotlineButton == 5) {
+            if (activePlotlineButton == 6) {
                 nextPlotlineButton = document.querySelector('[data-plotline-show="1"]');
+            } else if (activePlotlineButton == 2) {
+                nextPlotlineButton = document.querySelector('[data-plotline-show="4"]');
             } else {
                 nextPlotlineButton = document.querySelector('[data-plotline-show="' + (parseInt(activePlotlineButton, 10) + 1) + '"]');
             }
@@ -284,7 +279,7 @@
             if (svgObject && activeCityPath.length === 0) {
                 document.querySelector('[data-city-path="berlin"]').setAttribute('data-active', true);
                 document.querySelector('[data-city-point="berlin"]').setAttribute('data-active', true);
-                document.querySelector('[data-city-plane="berlin"]').setAttribute('data-active', true);
+                document.querySelector('[data-city-plane="berlin1"]').setAttribute('data-active', true);
             }
         }
 
