@@ -1,0 +1,367 @@
+        
+.modal {
+    max-height: calc(100% - 100px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modalCenterCenter16To9 {
+    width: 1920px;
+    max-width: 60%;
+    height: auto;
+    max-height: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modalFullCenter {
+    overflow: hidden;
+    width: 800px;
+    max-width: 95%;
+    height: 600px;
+    max-height: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modalFullTopCenter {
+    overflow: hidden;
+    width: 800px;
+    max-width: 95%;
+    height: 200px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modalFullBottomCenter {
+    overflow: hidden;
+    width: 800px;
+    max-width: 95%;
+    height: 200px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x1-y2 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x2-y2 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x3-y2 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x1-y1 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x2-y1 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x3-y1 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x1-y3 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x2-y3 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal3x3-x3-y3 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 30%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+/* 5 x 3 */
+.modal5x3-x1-y1 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x2-y1 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x3-y1 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x4-y1 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x5-y1 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 80%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x1-y2 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x2-y2 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x3-y2 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x4-y2 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x5-y2 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x1-y3 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x2-y3 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x3-y3 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x4-y3 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.modal5x3-x5-y3 {
+    overflow: hidden;
+    width: 800px;
+    max-width: 20%;
+    height: 600px;
+    max-height: 30%;
+    position: fixed;
+    top: 20%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+@media only screen and (max-width: 500px) {
+    .modalFullCenter,
+    .modalFullTopCenter,
+    .modalFullBottomCenter,
+    .modal3x3-x1-y1,
+    .modal3x3-x2-y1,
+    .modal3x3-x3-y1,
+    .modal3x3-x2-y2,
+    .modal3x3-x1-y2,
+    .modal3x3-x3-y2,
+    .modal3x3-x1-y1,
+    .modal3x3-x2-y1,
+    .modal3x3-x3-y1 {
+        position: relative;
+        margin-bottom: 10px;
+        max-width: 100%;
+        max-height: 240px;
+        overflow: hidden;
+        top: auto;
+        left: auto;
+        transform: none;
+    } 
+}

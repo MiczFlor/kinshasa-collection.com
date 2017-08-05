@@ -1,0 +1,145 @@
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    color: #fff;
+}
+
+/****************************/
+/* Main video in background */
+
+* { box-sizing: border-box; }
+.video-background {
+  background: #000;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -99;
+}
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+/* force to cover screen
+@media (min-aspect-ratio: 16/9) {
+  .video-foreground { height: 300%; top: -100%; }
+}
+@media (max-aspect-ratio: 16/9) {
+  .video-foreground { width: 300%; left: -100%; }
+}
+/**/
+@media all and (max-width: 600px) {
+.vid-info { width: 50%; padding: .5rem; }
+.vid-info h1 { margin-bottom: .2rem; }
+}
+@media all and (max-width: 500px) {
+.vid-info .acronym { display: none; }
+}
+
+#controls {
+    color: white;
+    background-color: black;
+    position: fixed;
+    bottom: 0; right: 0; left: 0;
+    width: 80%;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/******************************/
+/* keep ratio for 16:9 videos */
+
+.video-container {
+  clear: both;
+  position: relative;
+  padding-bottom: 56.25%; /*16:9*/
+  padding-top: 0px; 
+  height: 0; 
+  overflow: hidden;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/************************************/
+/* jQuery classes for hide and show */
+
+.toggleHide {
+    display: none;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+.toggleShow {
+    display: block;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+
+/* Fullscreen */
+:-webkit-full-screen {
+  /* properties */
+}
+
+:-moz-full-screen {
+  /* properties */
+}
+
+:-ms-fullscreen {
+  /* properties */
+}
+
+:full-screen { /*pre-spec */
+  /* properties */
+}
+
+:fullscreen { /* spec */
+  /* properties */
+}
+
+/* deeper elements */
+:-webkit-full-screen .video-foreground {
+}
+
+/* styling the backdrop*/
+::backdrop {
+  /* properties */
+}
+::-ms-backdrop {
+  /* properties */
+}
+
+/*********************/
+/* background styles */
+.bg01 {
+    padding: 10px;
+    background: #ca5b7f; /* Old browsers */
+    background: -moz-linear-gradient(top, #ca5b7f 0%, #e6f14b 50%, #e6f14b 51%, #1100bc 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ca5b7f 0%,#e6f14b 50%,#e6f14b 51%,#1100bc 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ca5b7f 0%,#e6f14b 50%,#e6f14b 51%,#1100bc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ca5b7f', endColorstr='#1100bc',GradientType=0 ); /* IE6-9 */
+}
+.bg02 {
+    padding: 10px;
+    background: #ca5b7f; /* Old browsers */
+    background: -moz-linear-gradient(top, #ca5b7f 0%, #e6f14b 50%, #e6f14b 51%, #1100bc 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ca5b7f 0%,#e6f14b 50%,#e6f14b 51%,#1100bc 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ca5b7f 0%,#e6f14b 50%,#e6f14b 51%,#1100bc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ca5b7f', endColorstr='#1100bc',GradientType=0 ); /* IE6-9 */
+}
