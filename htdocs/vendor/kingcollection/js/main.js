@@ -1,1 +1,417 @@
-!function(){"use strict";var t=window.innerWidth,e=function(t,e){var o,n=window.pageYOffset,a=t.offsetTop+40,c=(a-n)/(e/16);"top"===t.id&&(a=t.offsetTop);o=c>=0?function(){var t=window.pageYOffset;(t>=a-c||window.innerHeight+t>=document.body.offsetHeight)&&clearInterval(i)}:function(){window.pageYOffset<=(a||0)&&clearInterval(i)};var i=setInterval(function(){window.scrollBy(0,c),o()},16)},o=document.querySelectorAll("[data-smooth-scroll]");[].forEach.call(o,function(t){t.addEventListener("click",function(o){o.preventDefault();var n=t.getAttribute("href"),a=document.querySelector(n),c=t.getAttribute("data-speed")||500;a&&e(a,c)},!1)});var n=document.getElementById("trailer-dialog"),a=document.querySelector("[data-a11y-dialog-show]"),c=document.querySelector("header");a.addEventListener("click",function(t){t.preventDefault()});document.querySelector(".dialog-content video");var i=document.querySelector("video");if(n){var r=new A11yDialog(n,c),l={id:226337671},d=new Vimeo.Player("vimeo-iframe",l);r.on("show",function(t,e){d.play(),i.pause()}),r.on("hide",function(t,e){d.pause(),i.play()})}var u=document.querySelectorAll(".protagonists-list li");u&&[].forEach.call(u,function(t){t.addEventListener("click",function(){[].forEach.call(u,function(t){t.classList.remove("hover")}),this.classList.add("hover")}),t.addEventListener("mouseover",function(){this.click()})});var s=document.querySelector("[data-status]"),f=document.querySelector("[data-volume]"),m=document.querySelectorAll("video");s&&t>960&&([].forEach.call(m,function(t){t.setAttribute("src","https://player.vimeo.com/external/226285539.hd.mp4?s=1a99a0274bd77c0d77bf67375bb5a1415f41530c&profile_id=175")}),s.addEventListener("click",function(){"play"===this.dataset.status?(this.dataset.status="pause",this.textContent="Play video",i.pause()):(this.dataset.status="play",this.textContent="Stop video",i.play())}),f.addEventListener("click",function(){"off"===this.dataset.volume?(this.dataset.volume="on",this.textContent="Volume on",i.muted=!1):(this.dataset.volume="off",this.textContent="Volume off",i.muted=!0)}));var v,y=!1,h=(document.querySelector("[data-active]"),document.querySelectorAll("[data-plotline-show]")),p=document.querySelectorAll("path[data-active]");if(h&&h.length>0){var w=function(t){var e=t.dataset.plotlineShow,o=t.dataset.city,n=document.querySelector('[data-plotline="'+e+'"]'),a=document.querySelector('[data-city-path="'+o+'"]'),c=document.querySelector('[data-city-point="'+o+'"]'),i=document.querySelector('[data-city-plane="'+o+e+'"]'),r=document.querySelector("[data-active-button]")||!1;(p=document.querySelectorAll("[data-active]"))&&[].forEach.call(p,function(t){t.removeAttribute("data-active")}),r&&[].forEach.call(h,function(t){t.removeAttribute("data-active-button")}),t.setAttribute("data-active-button",!0),a.setAttribute("data-active",!0),c.setAttribute("data-active",!0),i.setAttribute("data-active",!0),n.setAttribute("data-active",!0)};[].forEach.call(h,function(t){t.addEventListener("click",function(){w(this)}),t.addEventListener("mouseover",function(){this.click(),clearTimeout(v)})});var S=function(){clearTimeout(v);var t,e=document.querySelector("[data-active-button]").dataset.plotlineShow;t=6==e?document.querySelector('[data-plotline-show="1"]'):2==e?document.querySelector('[data-plotline-show="4"]'):document.querySelector('[data-plotline-show="'+(parseInt(e,10)+1)+'"]'),v=setTimeout(function(){t.click(),S()},4e3)},b=function(){window.pageYOffset>document.getElementById("plotline").offsetTop&&!y?(S(),y=!0):window.pageYOffset>document.getElementById("plotline").offsetTop+600?(clearTimeout(v),y=!1):window.pageYOffset<document.getElementById("plotline").offsetTop&&(clearTimeout(v),y=!1)};window.addEventListener("scroll",function(){b()})}if(window.addEventListener("load",function(){if(t>960){var e=document.querySelector("[data-svg-object]");e&&e.contentDocument&&e.parentElement.replaceChild(e.contentDocument.documentElement.cloneNode(!0),e),e&&0===p.length&&(document.querySelector('[data-city-path="berlin"]').setAttribute("data-active",!0),document.querySelector('[data-city-point="berlin"]').setAttribute("data-active",!0),document.querySelector('[data-city-plane="berlin1"]').setAttribute("data-active",!0))}}),t<960){var g=document.querySelector(['[data-trigger="menu"]']),q=document.querySelectorAll("[data-smooth-scroll]");g&&(g.removeAttribute("hidden"),document.body.classList.add("size-small"),g.addEventListener("click",function(){document.body.classList.toggle("menu-open")}),[].forEach.call(q,function(t){t.addEventListener("click",function(){document.body.classList.remove("menu-open")})}))}var E=document.querySelector(".back-to-top");if(E){var A=0;window.addEventListener("scroll",function(){var t=window.pageYOffset||document.documentElement.scrollTop;t>A?E.classList.remove("is-active"):E.classList.add("is-active"),A=t},!1)}var L=document.querySelector('[data-switcher="language"]');L&&L.addEventListener("change",function(){location.href=document.location.origin+"/"+this.value});var k=document.querySelectorAll("[data-history-back]");k&&[].forEach.call(k,function(t){t.addEventListener("click",function(t){window.history.back(),t.preventDefault()})}),console.log("JavaScript file with version v0.2.1 loaded with no errors."),window.onerror=function(){document.documentElement.className=""}}();
+(function() {
+
+    'use strict';
+
+    var VERSION = '0.2.1';
+    var viewportWidth = window.innerWidth;
+
+    // Function to animate the scroll
+    var smoothScroll = function(anchor, duration) {
+
+        // Calculate how far and how fast to scroll
+        var startLocation = window.pageYOffset;
+        var endLocation = anchor.offsetTop + 40;
+        var distance = endLocation - startLocation;
+        var increments = distance / (duration / 16);
+        var stopAnimation;
+
+        if (anchor.id === 'top') {
+            endLocation = anchor.offsetTop;
+        }
+
+        // Scroll the page by an increment, and check if it's time to stop
+        var animateScroll = function() {
+            window.scrollBy(0, increments);
+            stopAnimation();
+        };
+
+        // If scrolling down
+        if (increments >= 0) {
+            // Stop animation when you reach the anchor OR the bottom of the page
+            stopAnimation = function() {
+                var travelled = window.pageYOffset;
+                if ((travelled >= (endLocation - increments)) || ((window.innerHeight + travelled) >= document.body.offsetHeight)) {
+                    clearInterval(runAnimation);
+                }
+            };
+        }
+        // If scrolling up
+        else {
+            // Stop animation when you reach the anchor OR the top of the page
+            stopAnimation = function() {
+                var travelled = window.pageYOffset;
+                if (travelled <= (endLocation || 0)) {
+                    clearInterval(runAnimation);
+                }
+            };
+        }
+
+        // Loop the animation function
+        var runAnimation = setInterval(animateScroll, 16);
+
+    };
+
+    // Define smooth scroll links
+    var scrollToggle = document.querySelectorAll('[data-smooth-scroll]');
+
+    // For each smooth scroll link
+    [].forEach.call(scrollToggle, function(toggle) {
+
+        // When the smooth scroll link is clicked
+        toggle.addEventListener('click', function(e) {
+
+            // Prevent the default link behavior
+            e.preventDefault();
+
+            // Get anchor link and calculate distance from the top
+            var dataID = toggle.getAttribute('href');
+            var dataTarget = document.querySelector(dataID);
+            var dataSpeed = toggle.getAttribute('data-speed') || 500;
+
+            // If the anchor exists
+            if (dataTarget) {
+                // Scroll to the anchor
+                smoothScroll(dataTarget, dataSpeed);
+            }
+
+        }, false);
+
+    });
+
+    var trailerDialogEl = document.getElementById('trailer-dialog');
+    var trailerDialogButton = document.querySelector('[data-a11y-dialog-show]');
+    var mainEl = document.querySelector('header');
+
+    trailerDialogButton.addEventListener('click', function(e) {
+        e.preventDefault();
+    });
+
+    // trailer dialog
+    var videoIframeElement = document.querySelector('.dialog-content video');
+    var videoElement = document.querySelector('video');
+
+    if (trailerDialogEl) {
+        var trailerDialog = new A11yDialog(trailerDialogEl, mainEl);
+
+
+
+        var vimeoOptions = {
+            id: 226337671
+        };
+
+        var vimeoPlayer = new Vimeo.Player('vimeo-iframe', vimeoOptions);
+
+
+        trailerDialog.on('show', function(dialogEl, triggerEl) {
+            vimeoPlayer.play();
+            videoElement.pause();
+        });
+
+        trailerDialog.on('hide', function(dialogEl, triggerEl) {
+            vimeoPlayer.pause();
+            videoElement.play();
+        });
+    }
+
+
+    // protagonists
+    var protagonistsElements = document.querySelectorAll('.protagonists-list li');
+
+    if (protagonistsElements) {
+        [].forEach.call(protagonistsElements, function(protagonistsElement) {
+            protagonistsElement.addEventListener('click', function() {
+                [].forEach.call(protagonistsElements, function(protagonistsElement) {
+                    protagonistsElement.classList.remove('hover');
+                });
+                this.classList.add('hover');
+            });
+
+            protagonistsElement.addEventListener('mouseover', function() {
+                this.click();
+            });
+        });
+    }
+
+
+
+    // video controls
+    var videoState = document.querySelector('[data-status]');
+    var videoVolume = document.querySelector('[data-volume]');
+    var videoElements = document.querySelectorAll('video');
+    var videoControlsInit = false;
+
+    var handleVideoControls = function() {
+        viewportWidth = window.innerWidth;
+
+        if (videoState && viewportWidth > 960 && !videoControlsInit) {
+            [].forEach.call(videoElements, function(video) {
+                video.setAttribute('src', 'https://player.vimeo.com/external/226285539.hd.mp4?s=1a99a0274bd77c0d77bf67375bb5a1415f41530c&profile_id=175');
+            });
+
+            videoState.addEventListener('click', function() {
+                var currentState = this.dataset.status;
+
+                if (currentState === 'play') {
+                    this.dataset.status = 'pause';
+                    this.textContent = 'Play video';
+                    videoElement.pause();
+                } else {
+                    this.dataset.status = 'play';
+                    this.textContent = 'Stop video';
+                    videoElement.play();
+                }
+            });
+
+            videoVolume.addEventListener('click', function() {
+                var volume = this.dataset.volume;
+
+                if (volume === 'off') {
+                    this.dataset.volume = 'on';
+                    this.textContent = 'Volume on';
+                    videoElement.muted = false;
+                } else {
+                    this.dataset.volume = 'off';
+                    this.textContent = 'Volume off';
+                    videoElement.muted = true;
+                }
+            });
+
+            videoControlsInit = true;
+        }
+    };
+
+
+    handleVideoControls();
+
+    window.addEventListener('resize', function() {
+        handleVideoControls();
+    });
+
+
+    // plotline
+    var timerPlotline;
+    var plotlineStarted = false;
+    var activePlotline = document.querySelector('[data-active]');
+    var plotlineButtons = document.querySelectorAll('[data-plotline-show]');
+    var activeCityPath = document.querySelectorAll('path[data-active]');
+
+    if (plotlineButtons && plotlineButtons.length > 0) {
+        var changePlotlines = function(plotline) {
+            var plotlineToShow = plotline.dataset.plotlineShow;
+            var city = plotline.dataset.city;
+            var newPlotline = document.querySelector('[data-plotline="' + plotlineToShow + '"]');
+            var cityPath = document.querySelector('[data-city-path="' + city + '"]');
+            var cityPoint = document.querySelector('[data-city-point="' + city + '"]');
+            var cityPlane = document.querySelector('[data-city-plane="' + city + plotlineToShow + '"]');
+            var activeButton = document.querySelector('[data-active-button]') || false;
+            activeCityPath = document.querySelectorAll('[data-active]');
+
+            if (activeCityPath) {
+                [].forEach.call(activeCityPath, function(path) {
+                    path.removeAttribute('data-active');
+                });
+            }
+
+            if (activeButton) {
+                [].forEach.call(plotlineButtons, function(button) {
+                    button.removeAttribute('data-active-button');
+                });
+
+            }
+            if (plotline && cityPath && cityPoint && cityPlane && newPlotline) {
+                plotline.setAttribute('data-active-button', true);
+                cityPath.setAttribute('data-active', true);
+                cityPoint.setAttribute('data-active', true);
+                cityPlane.setAttribute('data-active', true);
+                newPlotline.setAttribute('data-active', true);
+            }
+
+        };
+
+        [].forEach.call(plotlineButtons, function(plotlineButton) {
+
+            plotlineButton.addEventListener('click', function() {
+                changePlotlines(this);
+            });
+
+            plotlineButton.addEventListener('mouseover', function() {
+                this.click();
+                clearTimeout(timerPlotline);
+            });
+
+        });
+
+        var startPlotlines = function() {
+
+            clearTimeout(timerPlotline);
+            var activePlotlineButton = document.querySelector('[data-active-button]');
+
+            if (activePlotlineButton.length) {
+                activePlotlineButton = activePlotlineButton.dataset.plotlineShow
+                var nextPlotlineButton;
+                if (activePlotlineButton == 6) {
+                    nextPlotlineButton = document.querySelector('[data-plotline-show="1"]');
+                } else {
+                    nextPlotlineButton = document.querySelector('[data-plotline-show="' + (parseInt(activePlotlineButton, 10) + 1) + '"]');
+                }
+                timerPlotline = setTimeout(function() {
+                    nextPlotlineButton.click();
+                    startPlotlines();
+                }, 4000);
+            }
+
+        };
+
+        var triggerPlotline = function() {
+            if ((window.pageYOffset > document.getElementById('plotline').offsetTop) && !plotlineStarted) {
+                startPlotlines();
+                plotlineStarted = true;
+            } else if (window.pageYOffset > (document.getElementById('plotline').offsetTop + 600)) {
+                clearTimeout(timerPlotline);
+                plotlineStarted = false;
+            } else if (window.pageYOffset < document.getElementById('plotline').offsetTop) {
+                clearTimeout(timerPlotline);
+                plotlineStarted = false;
+            }
+        };
+
+        window.addEventListener('scroll', function() {
+            triggerPlotline();
+        });
+    }
+
+
+    // map
+    window.addEventListener("load", function() {
+
+        var mapLoaded = false;
+
+        var loadMap = function() {
+            if (viewportWidth > 960 && !mapLoaded) {
+                var svgObject = document.querySelector('[data-svg-object]');
+
+                if (svgObject && svgObject.contentDocument) {
+                    svgObject.parentElement.replaceChild(svgObject.contentDocument.documentElement.cloneNode(true), svgObject);
+                }
+
+                if (svgObject && activeCityPath.length === 0) {
+                    if (document.querySelector('[data-city-path="berlin"]').length) {
+                        document.querySelector('[data-city-path="berlin"]').setAttribute('data-active', true);
+                        document.querySelector('[data-city-point="berlin"]').setAttribute('data-active', true);
+                        document.querySelector('[data-city-plane="berlin1"]').setAttribute('data-active', true);
+                    }
+
+                }
+
+                mapLoaded = true;
+            }
+        };
+
+        loadMap();
+
+        window.addEventListener('resize', function() {
+            loadMap();
+        });
+
+    });
+
+    // mobile nav
+
+    var mobileMenuInit = false;
+
+    var handleMobileMenu = function() {
+        var menuTrigger = document.querySelector(['[data-trigger="menu"]']);
+        var menuLinks = document.querySelectorAll('[data-smooth-scroll]');
+
+        viewportWidth = window.innerWidth;
+
+        if (viewportWidth < 960) {
+
+            if (!mobileMenuInit) {
+                if (menuTrigger) {
+                    menuTrigger.removeAttribute('hidden');
+                    document.body.classList.add('size-small');
+
+                    menuTrigger.addEventListener('click', function() {
+                        document.body.classList.toggle('menu-open');
+                    });
+
+                    [].forEach.call(menuLinks, function(menuLink) {
+                        menuLink.addEventListener('click', function() {
+                            document.body.classList.remove('menu-open');
+                        });
+                    });
+                }
+                mobileMenuInit = true;
+            }
+
+        } else {
+            mobileMenuInit = false;
+
+            if (menuTrigger) {
+                menuTrigger.setAttribute('hidden', true);
+                document.body.classList.remove('size-small');
+
+                [].forEach.call(menuLinks, function(menuLink) {
+                    menuLink.removeEventListener('click', function() {
+                        document.body.classList.remove('menu-open');
+                    });
+                });
+            }
+        }
+    };
+
+    handleMobileMenu();
+
+    window.addEventListener('resize', function() {
+        handleMobileMenu();
+    });
+
+    // back to top button
+    var backToTopButton = document.querySelector('.back-to-top');
+
+    if (backToTopButton) {
+        var lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop) {
+                backToTopButton.classList.remove('is-active');
+            } else {
+                backToTopButton.classList.add('is-active');
+            }
+            lastScrollTop = st;
+        }, false);
+    }
+
+
+
+    // language switch
+    var languageSwitcher = document.querySelector('[data-switcher="language"]');
+
+    if (languageSwitcher) {
+        languageSwitcher.addEventListener('change', function() {
+            location.href = document.location.origin + '/' + this.value;
+        });
+    }
+
+    // history back link
+    var historyBackLinks = document.querySelectorAll('[data-history-back]');
+
+    if (historyBackLinks) {
+        [].forEach.call(historyBackLinks, function(historyBackLink) {
+            historyBackLink.addEventListener('click', function(ev) {
+                window.history.back();
+                ev.preventDefault();
+            });
+        });
+    }
+
+
+
+    console.log('JavaScript file with version v' + VERSION + ' loaded with no errors.');
+
+    window.onerror = function() {
+        document.documentElement.className = '';
+    };
+
+})();

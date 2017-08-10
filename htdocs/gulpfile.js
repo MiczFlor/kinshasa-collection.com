@@ -38,7 +38,6 @@ gulp.task('styles', function() {
 gulp.task('compress', function(cb) {
     pump([
             gulp.src('src/js/*.js'),
-            uglify(),
             gulp.dest('vendor/kingcollection/js')
         ],
         cb
@@ -76,7 +75,7 @@ gulp.task('images', function() {
 
 /* generate webp images */
 gulp.task('webp', () =>
-    gulp.src('src/media/*')
+    gulp.src('static/*')
     .pipe(webp())
     .pipe(gulp.dest('static'))
 );

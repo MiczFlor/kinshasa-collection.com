@@ -138,41 +138,54 @@
     var videoState = document.querySelector('[data-status]');
     var videoVolume = document.querySelector('[data-volume]');
     var videoElements = document.querySelectorAll('video');
+    var videoControlsInit = false;
 
-    if (videoState && viewportWidth > 960) {
-        [].forEach.call(videoElements, function(video) {
-            video.setAttribute('src', 'https://player.vimeo.com/external/226285539.hd.mp4?s=1a99a0274bd77c0d77bf67375bb5a1415f41530c&profile_id=175');
-        });
+    var handleVideoControls = function() {
+        viewportWidth = window.innerWidth;
 
-        videoState.addEventListener('click', function() {
-            var currentState = this.dataset.status;
+        if (videoState && viewportWidth > 960 && !videoControlsInit) {
+            [].forEach.call(videoElements, function(video) {
+                video.setAttribute('src', 'https://player.vimeo.com/external/226285539.hd.mp4?s=1a99a0274bd77c0d77bf67375bb5a1415f41530c&profile_id=175');
+            });
 
-            if (currentState === 'play') {
-                this.dataset.status = 'pause';
-                this.textContent = 'Play video';
-                videoElement.pause();
-            } else {
-                this.dataset.status = 'play';
-                this.textContent = 'Stop video';
-                videoElement.play();
-            }
-        });
+            videoState.addEventListener('click', function() {
+                var currentState = this.dataset.status;
 
-        videoVolume.addEventListener('click', function() {
-            var volume = this.dataset.volume;
+                if (currentState === 'play') {
+                    this.dataset.status = 'pause';
+                    this.textContent = 'Play video';
+                    videoElement.pause();
+                } else {
+                    this.dataset.status = 'play';
+                    this.textContent = 'Stop video';
+                    videoElement.play();
+                }
+            });
 
-            if (volume === 'off') {
-                this.dataset.volume = 'on';
-                this.textContent = 'Volume on';
-                videoElement.muted = false;
-            } else {
-                this.dataset.volume = 'off';
-                this.textContent = 'Volume off';
-                videoElement.muted = true;
-            }
-        });
-    }
+            videoVolume.addEventListener('click', function() {
+                var volume = this.dataset.volume;
 
+                if (volume === 'off') {
+                    this.dataset.volume = 'on';
+                    this.textContent = 'Volume on';
+                    videoElement.muted = false;
+                } else {
+                    this.dataset.volume = 'off';
+                    this.textContent = 'Volume off';
+                    videoElement.muted = true;
+                }
+            });
+
+            videoControlsInit = true;
+        }
+    };
+
+
+    handleVideoControls();
+
+    window.addEventListener('resize', function() {
+        handleVideoControls();
+    });
 
 
     // plotline
@@ -205,12 +218,14 @@
                 });
 
             }
+            if (plotline && cityPath && cityPoint && cityPlane && newPlotline) {
+                plotline.setAttribute('data-active-button', true);
+                cityPath.setAttribute('data-active', true);
+                cityPoint.setAttribute('data-active', true);
+                cityPlane.setAttribute('data-active', true);
+                newPlotline.setAttribute('data-active', true);
+            }
 
-            plotline.setAttribute('data-active-button', true);
-            cityPath.setAttribute('data-active', true);
-            cityPoint.setAttribute('data-active', true);
-            cityPlane.setAttribute('data-active', true);
-            newPlotline.setAttribute('data-active', true);
         };
 
         [].forEach.call(plotlineButtons, function(plotlineButton) {
@@ -229,19 +244,22 @@
         var startPlotlines = function() {
 
             clearTimeout(timerPlotline);
-            var activePlotlineButton = document.querySelector('[data-active-button]').dataset.plotlineShow;
-            var nextPlotlineButton;
-            if (activePlotlineButton == 6) {
-                nextPlotlineButton = document.querySelector('[data-plotline-show="1"]');
-            } else if (activePlotlineButton == 2) {
-                nextPlotlineButton = document.querySelector('[data-plotline-show="4"]');
-            } else {
-                nextPlotlineButton = document.querySelector('[data-plotline-show="' + (parseInt(activePlotlineButton, 10) + 1) + '"]');
+            var activePlotlineButton = document.querySelector('[data-active-button]');
+
+            if (activePlotlineButton.length) {
+                activePlotlineButton = activePlotlineButton.dataset.plotlineShow
+                var nextPlotlineButton;
+                if (activePlotlineButton == 6) {
+                    nextPlotlineButton = document.querySelector('[data-plotline-show="1"]');
+                } else {
+                    nextPlotlineButton = document.querySelector('[data-plotline-show="' + (parseInt(activePlotlineButton, 10) + 1) + '"]');
+                }
+                timerPlotline = setTimeout(function() {
+                    nextPlotlineButton.click();
+                    startPlotlines();
+                }, 4000);
             }
-            timerPlotline = setTimeout(function() {
-                nextPlotlineButton.click();
-                startPlotlines();
-            }, 4000);
+
         };
 
         var triggerPlotline = function() {
@@ -263,53 +281,91 @@
     }
 
 
-
-
-
     // map
     window.addEventListener("load", function() {
 
-        if (viewportWidth > 960) {
-            var svgObject = document.querySelector('[data-svg-object]');
+        var mapLoaded = false;
 
-            if (svgObject && svgObject.contentDocument) {
-                svgObject.parentElement.replaceChild(svgObject.contentDocument.documentElement.cloneNode(true), svgObject);
-            }
+        var loadMap = function() {
+            if (viewportWidth > 960 && !mapLoaded) {
+                var svgObject = document.querySelector('[data-svg-object]');
 
-            if (svgObject && activeCityPath.length === 0) {
-                document.querySelector('[data-city-path="berlin"]').setAttribute('data-active', true);
-                document.querySelector('[data-city-point="berlin"]').setAttribute('data-active', true);
-                document.querySelector('[data-city-plane="berlin1"]').setAttribute('data-active', true);
+                if (svgObject && svgObject.contentDocument) {
+                    svgObject.parentElement.replaceChild(svgObject.contentDocument.documentElement.cloneNode(true), svgObject);
+                }
+
+                if (svgObject && activeCityPath.length === 0) {
+                    if (document.querySelector('[data-city-path="berlin"]').length) {
+                        document.querySelector('[data-city-path="berlin"]').setAttribute('data-active', true);
+                        document.querySelector('[data-city-point="berlin"]').setAttribute('data-active', true);
+                        document.querySelector('[data-city-plane="berlin1"]').setAttribute('data-active', true);
+                    }
+
+                }
+
+                mapLoaded = true;
             }
-        }
+        };
+
+        loadMap();
+
+        window.addEventListener('resize', function() {
+            loadMap();
+        });
 
     });
 
     // mobile nav
 
-    if (viewportWidth < 960) {
+    var mobileMenuInit = false;
 
+    var handleMobileMenu = function() {
         var menuTrigger = document.querySelector(['[data-trigger="menu"]']);
         var menuLinks = document.querySelectorAll('[data-smooth-scroll]');
 
-        if (menuTrigger) {
-            menuTrigger.removeAttribute('hidden');
-            document.body.classList.add('size-small');
+        viewportWidth = window.innerWidth;
 
-            menuTrigger.addEventListener('click', function() {
-                document.body.classList.toggle('menu-open');
-            });
+        if (viewportWidth < 960) {
 
-            [].forEach.call(menuLinks, function(menuLink) {
-                menuLink.addEventListener('click', function() {
-                    document.body.classList.remove('menu-open');
+            if (!mobileMenuInit) {
+                if (menuTrigger) {
+                    menuTrigger.removeAttribute('hidden');
+                    document.body.classList.add('size-small');
+
+                    menuTrigger.addEventListener('click', function() {
+                        document.body.classList.toggle('menu-open');
+                    });
+
+                    [].forEach.call(menuLinks, function(menuLink) {
+                        menuLink.addEventListener('click', function() {
+                            document.body.classList.remove('menu-open');
+                        });
+                    });
+                }
+                mobileMenuInit = true;
+            }
+
+        } else {
+            mobileMenuInit = false;
+
+            if (menuTrigger) {
+                menuTrigger.setAttribute('hidden', true);
+                document.body.classList.remove('size-small');
+
+                [].forEach.call(menuLinks, function(menuLink) {
+                    menuLink.removeEventListener('click', function() {
+                        document.body.classList.remove('menu-open');
+                    });
                 });
-            });
+            }
         }
+    };
 
+    handleMobileMenu();
 
-    }
-
+    window.addEventListener('resize', function() {
+        handleMobileMenu();
+    });
 
     // back to top button
     var backToTopButton = document.querySelector('.back-to-top');
