@@ -1,5 +1,5 @@
-const VERSION = '0.2.1';
-const PRECACHE = 'precache-v2';
+const VERSION = '0.3';
+const PRECACHE = 'precache' + VERSION;
 const RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.
