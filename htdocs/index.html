@@ -862,7 +862,7 @@
                             });
                         }
 
-                        if ('1serviceWorker' in navigator) {
+                        if ('serviceWorker' in navigator) {
                             navigator.serviceWorker.register('./service-worker.js', {
                                 scope: './'
                             }).then(function(registration) {

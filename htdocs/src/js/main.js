@@ -2,7 +2,7 @@
 
     'use strict';
 
-    var VERSION = '0.2.1';
+    var VERSION = '0.3';
     var viewportWidth = window.innerWidth;
 
     // Function to animate the scroll
