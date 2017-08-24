@@ -107,7 +107,7 @@
     li:before {
         display: none;
     }
-    li.active:before {
+    li.active a:before {
         display: block;
         content: "";
         background: transparent url(./static/video-play.png) no-repeat center center;

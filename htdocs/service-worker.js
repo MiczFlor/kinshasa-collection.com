@@ -1,9 +1,11 @@
-const VERSION = '0.3';
+const VERSION = '0.5';
 const PRECACHE = 'precache' + VERSION;
 const RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
+    '/',
+    './',
     './index.html',
     './index-de.html',
     './index-fr.html'
@@ -14,8 +16,9 @@ self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(PRECACHE)
         .then(cache => cache.addAll(PRECACHE_URLS))
-        .then(self.skipWaiting())
     );
+
+    self.skipWaiting()
 });
 
 // The activate handler takes care of cleaning up old caches.
