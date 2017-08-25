@@ -129,7 +129,7 @@
         display: none;
     }
     li:hover {
-        &:before {
+        a:before {
             background: transparent url(./static/video-play.png) no-repeat center center;
             background-size: 37px 38px;
             transform: translateY(-10px);
