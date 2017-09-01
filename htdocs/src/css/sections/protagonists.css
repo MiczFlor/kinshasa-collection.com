@@ -66,6 +66,9 @@
         &.hover div {
             transform: translateY(0);
         }
+        a {
+            text-decoration: none;
+        }
     }
 }
 
@@ -149,6 +152,9 @@
         &.protagonist-26:after {
             background-image: url(./static/zimu-zhang-protagonist.jpg);
         }
+        &.protagonist-27:after {
+            background-image: url(./static/yellowpages-protagonist.jpg);
+        }
     }
 }
 
@@ -231,6 +237,9 @@
         }
         &.protagonist-26:after {
             background-image: url(./static/zimu-zhang-protagonist.webp);
+        }
+        &.protagonist-27:after {
+            background-image: url(./static/yellowpages-protagonist.webp);
         }
     }
 }
