@@ -154,8 +154,8 @@
     .episode-5:after {
         background-image: url(./static/kinshasa-collection-episode-5.jpg);
     }
-    .episode-youtube:after {
-        background-image: url(./static/kinshasa-collection-youtube-channel.jpg);
+    .episode-6:after {
+        background-image: url(./static/kinshasa-collection-episode-6.jpg);
     }
 }
 
@@ -175,8 +175,8 @@
     .episode-5:after {
         background-image: url(./static/kinshasa-collection-episode-5.webp);
     }
-    .episode-youtube:after {
-        background-image: url(./static/kinshasa-collection-youtube-channel.webp);
+    .episode-6:after {
+        background-image: url(./static/kinshasa-collection-episode-6.webp);
     }
 }
 
